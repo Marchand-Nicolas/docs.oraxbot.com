@@ -6,6 +6,5 @@ export default {
   'threads': 'Threads',
   'stickers': 'Stickers',
   'polls': 'Polls',
-  'custom-emojis': 'Custom Emojis',
-  'telegram': 'Telegram Bridge'
+  'custom-emojis': 'Custom Emojis'
 }

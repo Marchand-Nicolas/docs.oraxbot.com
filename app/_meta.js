@@ -12,17 +12,17 @@ export default {
     title: 'Links'
   },
   'website': {
-    title: 'Website ↗',
+    title: 'Website',
     href: 'https://oraxbot.com',
     type: 'page'
   },
   'dashboard': {
-    title: 'Dashboard ↗',
+    title: 'Dashboard',
     href: 'https://oraxbot.com/dashboard',
     type: 'page'
   },
   'support': {
-    title: 'Discord ↗',
+    title: 'Discord',
     href: 'https://discord.gg/e3pBtbum4A',
     type: 'page'
   }
