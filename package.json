@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "next": "^15.5.20",
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@types/node": "22.20.1",
     "@types/react": "19.2.17",
+    "patch-package": "^8.0.1",
     "typescript": "^5.9.0"
   }
 }
