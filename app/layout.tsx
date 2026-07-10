@@ -80,7 +80,7 @@ export default async function RootLayout({ children }) {
           banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/Marchand-Nicolas/oraxbot.com"
+          docsRepositoryBase="https://github.com/Marchand-Nicolas/docs.oraxbot.com/tree/master"
           footer={footer}
           editLink="Edit this page on GitHub"
           sidebar={{ defaultMenuCollapseLevel: 1 }}
