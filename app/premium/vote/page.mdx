@@ -8,52 +8,42 @@ You can get Orax Plus for free by voting for the bot on Top.gg. Each vote grants
 
 <Steps>
 
-### Visit the Top.gg Vote Page
+### Go to the Dashboard
 
-Go to [top.gg/bot/812298057470967858/vote](https://top.gg/bot/812298057470967858/vote)
+Open the [Orax Dashboard](https://oraxbot.com/dashboard) and select the server you want to activate Orax Plus for.
 
-### Log In with Discord
+### Click "Vote for Orax Plus"
 
-If you're not already logged in, authenticate with your Discord account on Top.gg.
+In the Orax Plus panel, click the **"Vote for Orax Plus"** button. This creates a vote intent linking your vote to the selected server.
 
-### Cast Your Vote
+### Vote on Top.gg
 
-Click the "Vote" button on the page. You can vote once every 12 hours.
+You'll be redirected to the [Top.gg vote page](https://top.gg/bot/812298057470967858/vote). Log in with Discord if needed and cast your vote.
 
-### Activate Orax Plus
+### Orax Plus Activates Automatically
 
-After voting, go to the [Orax Dashboard](https://oraxbot.com/dashboard) and click the **"Activate Vote"** button in the Orax Plus panel. This links your vote to your server and activates Orax Plus.
+Once Top.gg sends the vote webhook, Orax Plus is activated for your server automatically. The dashboard will poll for the result and update the status.
 
 </Steps>
 
 <Callout type="info">
-  In most cases, Orax Plus is activated **automatically** via the Top.gg webhook. However, if the webhook doesn't fire (e.g., due to network issues), you can manually activate your vote using the button in the dashboard.
+  If you've voted recently, clicking "Vote for Orax Plus" may activate Orax Plus immediately without redirecting you to Top.gg again.
 </Callout>
 
 ## How It Works
 
-1. You vote on Top.gg
-2. Top.gg sends a webhook to Orax's server with your vote details
-3. Orax creates an Orax Plus entitlement for your Discord user account
-4. You activate the entitlement for a specific server from the dashboard
-5. Orax Plus is active for approximately **one week**
-6. Vote again to extend the duration
+1. You click "Vote for Orax Plus" in the dashboard for a specific server
+2. Orax creates a **vote intent** linking your user ID to the selected guild
+3. You're redirected to Top.gg to cast your vote
+4. Top.gg sends a webhook to Orax's server with your vote details
+5. The webhook matches your vote to the vote intent
+6. Orax Plus is activated for the selected server for approximately **one week**
 
 ## Vote Cooldown
 
 - You can vote on Top.gg **once every 12 hours**
 - Each vote grants ~1 week of Orax Plus
 - If you vote regularly, you can maintain Orax Plus indefinitely
-
-## Vote Intents
-
-When you vote, Orax creates a **vote intent** that links your vote to a specific server. This happens when you:
-
-1. Click "Vote for Orax Plus" in the dashboard for a specific server
-2. This creates a vote intent with your user ID and the selected guild ID
-3. You're redirected to the Top.gg vote page
-4. After voting, the webhook matches your vote to the intent
-5. Orax Plus is activated for the selected server
 
 <Callout type="tip">
   Always start the voting process from the Orax Dashboard for a specific server. This ensures your vote is automatically linked to the correct server.
@@ -63,10 +53,10 @@ When you vote, Orax creates a **vote intent** that links your vote to a specific
 
 | Issue | Solution |
 |---|---|
-| Vote didn't activate automatically | Click "Activate Vote" in the dashboard |
-| Can't see the activate button | Make sure you've actually voted on Top.gg first |
-| Orax Plus expired too early | Votes last ~1 week. Vote again to reactivate |
+| Orax Plus didn't activate | Wait a few minutes — the webhook may take time. Make sure you completed the vote on Top.gg |
 | Wrong server got Orax Plus | Vote intents are per-server. Start a new vote from the correct server's dashboard |
+| Orax Plus expired too early | Votes last ~1 week. Vote again to reactivate |
+| Vote page didn't open | Allow pop-ups for oraxbot.com, or use the [direct vote link](https://top.gg/bot/812298057470967858/vote) and then click "Vote for Orax Plus" in the dashboard |
 
 ## Top.gg Vote Link
 
