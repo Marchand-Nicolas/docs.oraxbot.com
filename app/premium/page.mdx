@@ -1,0 +1,75 @@
+# Orax Plus
+
+import { Callout, Table } from 'nextra/components'
+
+Orax Plus is the premium tier that unlocks higher limits and supports the ongoing development of the bot. It can be obtained either by **voting on Top.gg** (free, temporary) or by **subscribing via Stripe** ($2.99/month).
+
+## Plan Comparison
+
+| Feature | Free | Orax Plus |
+|---|---|---|
+| **Max groups per server** | 2 | 100 |
+| **Max channels per group** | 5 | 50 |
+| **All features** | ✅ | ✅ |
+| **Price** | $0 | $2.99/month or free via voting |
+
+<Callout type="info">
+  Orax Plus does **not** unlock additional features — all features are available on the free plan. Orax Plus only increases the **limits** on how many groups and channels you can have.
+</Callout>
+
+## Getting Orax Plus
+
+There are two ways to get Orax Plus:
+
+### Option 1: Vote on Top.gg (Free)
+
+Vote for Orax on [Top.gg](https://top.gg/bot/812298057470967858/vote). Each vote grants Orax Plus for approximately **one week**. You can vote again to extend the duration.
+
+- **Cost**: Free
+- **Duration**: ~1 week per vote
+- **Activation**: Automatic via webhook, or manual activation button
+- **Limits**: Same as paid Orax Plus
+
+See [Vote for Orax Plus](/premium/vote) for detailed instructions.
+
+### Option 2: Subscribe via Stripe ($2.99/month)
+
+Subscribe to Orax Plus via Stripe for a recurring monthly subscription. This is the easiest way to support the bot and get permanent premium access.
+
+- **Cost**: $2.99/month
+- **Duration**: Active as long as subscription is active
+- **Activation**: Immediate upon successful payment
+- **Cancellation**: Cancel anytime from the Stripe customer portal
+
+<Callout type="tip">
+  Voting is completely free and gives you the same benefits as the paid subscription. If you can't afford the subscription, voting is a great alternative!
+</Callout>
+
+## Managing Your Subscription
+
+### Checking Your Status
+
+You can check your Orax Plus status from:
+
+- The [Orax Dashboard](https://oraxbot.com/dashboard) — the Orax Plus panel shows your current status and expiry
+- The dashboard API (`/v2/get_orax_plus_status` endpoint)
+
+### Cancellation
+
+Stripe subscriptions can be cancelled at any time. Upon cancellation:
+
+- Orax Plus remains active until the end of the current billing period
+- After the billing period ends, limits revert to the free tier
+- Existing groups and channels are **not** deleted — you just can't create new ones beyond the free limits
+
+## Data and Privacy
+
+Orax Plus entitlements are stored in the database with the following information:
+
+- Guild ID
+- Source (stripe, topgg_vote, or manual)
+- User ID (who activated it)
+- Start and end dates
+- Status (active/inactive)
+
+No payment details are stored by Orax — all payment processing is handled securely by Stripe.

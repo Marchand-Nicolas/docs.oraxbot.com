@@ -1,0 +1,41 @@
+# Stickers
+
+import { Callout } from 'nextra/components'
+
+Orax fully supports Discord stickers across interserver groups. All sticker formats are handled, with automatic conversion when needed.
+
+## Supported Sticker Formats
+
+| Format | Handling |
+|---|---|
+| **PNG** | Sent as-is |
+| **APNG** | Converted to GIF using `ffmpeg` |
+| **GIF** | Sent as-is |
+| **Lottie** | Converted to GIF using `puppeteer-lottie` |
+
+## How It Works
+
+1. A user sends a message with a sticker in a linked channel
+2. Orax detects the sticker and determines its format
+3. If the sticker is APNG or Lottie, it's downloaded and converted to GIF
+4. The converted or original file is attached to the relayed message in all other linked channels
+5. A local file cache prevents redundant downloads of the same sticker
+
+<Callout type="info">
+  Sticker conversion requires `ffmpeg` to be installed on the bot's server for APNG-to-GIF conversion, and Chromium/Puppeteer for Lottie-to-GIF rendering.
+</Callout>
+
+## File Cache
+
+Orax maintains a local sticker cache in the `storage/stickers/` directory. This means:
+
+- Repeatedly used stickers are served from cache instead of being re-downloaded
+- Conversion only happens once per sticker
+- Cache is automatically managed by the cleanup scheduler
+
+## Limitations
+
+- Sticker files are subject to the **10MB file size limit**
+- If `ffmpeg` is not installed, APNG stickers cannot be converted and will be skipped
+- If Chromium/Puppeteer is not configured (via `PUPPETEER_EXECUTABLE_PATH`), Lottie stickers cannot be rendered and will be skipped
+- Animated stickers are always converted to GIF format for maximum compatibility across servers

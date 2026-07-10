@@ -1,0 +1,60 @@
+# Custom Usernames
+
+import { Callout } from 'nextra/components'
+
+Custom usernames let you control how senders are displayed when their messages are relayed to other servers. You can use dynamic variables to include contextual information like the server name or the user's role.
+
+## Username Pattern
+
+The **custom usernames pattern** is a string that can contain dynamic variables wrapped in curly braces `{}`. When a message is relayed, the variables are replaced with the actual values.
+
+### Available Variables
+
+| Variable | Description | Example Output |
+|---|---|---|
+| `{username}` | The user's Discord username | JohnDoe |
+| `{nickname}` | The user's server-specific nickname (falls back to username) | Johnny |
+| `{serverName}` | The name of the originating Discord server | Server Alpha |
+| `{role}` | The user's highest role name in the server | Moderator |
+
+### Example Patterns
+
+| Pattern | Result |
+|---|---|
+| `{username}` | JohnDoe |
+| `{username} [{serverName}]` | JohnDoe [Server Alpha] |
+| `{nickname} | {serverName}` | Johnny | Server Alpha |
+| `{username} - {role}` | JohnDoe - Moderator |
+| `[{serverName}] {nickname}` | [Server Alpha] Johnny |
+
+<Callout type="tip">
+  Using `{serverName}` in the pattern helps users identify which server a message came from, which is especially useful in large interserv groups with many servers.
+</Callout>
+
+## Custom User Picture
+
+Similar to the username pattern, you can set a **custom user picture URL**. The only available variable is:
+
+| Variable | Description |
+|---|---|
+| `{userAvatarUrl}` | The user's Discord avatar URL |
+
+By default, the user's Discord avatar is used. You would typically only set a custom picture URL if you want to use a different image service or a custom avatar.
+
+## How to Configure
+
+### Via Dashboard
+
+1. Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard)
+2. Select your server and group
+3. Under **Basic Configuration**, find the **Custom Usernames** field
+4. Enter your desired pattern using the variables above
+5. Save the changes
+
+### Via Discord
+
+Use the `/manage-group` command and select the "Custom Usernames" option.
+
+<Callout type="info">
+  Custom username patterns apply group-wide. They cannot be overridden per channel.
+</Callout>

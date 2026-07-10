@@ -1,0 +1,57 @@
+# Channel Settings
+
+import { Callout } from 'nextra/components'
+
+Channel settings are **per-channel overrides** that take precedence over group-level defaults. They allow you to configure different behavior for individual channels within the same interserv group.
+
+## Available Channel Settings
+
+| Setting | Description | Default (inherits from group) |
+|---|---|---|
+| **Message Direction** | Controls which direction messages flow: All, Incoming only, Outgoing only | All messages |
+| **User Warning Message** | Toggle the first-time user warning for this channel | Inherits from group |
+| **Custom Warning Message** | Override the warning message text for this channel | Inherits from group |
+| **Reply Style** | Override how replies are displayed in this channel | Inherits from group |
+
+## Message Direction
+
+The most important channel-level setting is **message direction**, which controls how messages flow for a specific channel:
+
+| Direction | Behavior | Use Case |
+|---|---|---|
+| **All messages** | Channel sends and receives messages (default) | Normal bidirectional chat |
+| **Incoming only** | Channel receives messages but doesn't send its own | Read-only feed, announcements from other servers |
+| **Outgoing only** | Channel sends messages but doesn't receive any | Broadcasting to other servers without seeing replies |
+
+<Callout type="tip">
+  Message direction is particularly useful for announcement-style channels where you want to broadcast to other servers without receiving their messages, or for read-only feeds where you want to see messages from other servers without participating.
+</Callout>
+
+## How to Configure
+
+### Via Dashboard
+
+1. Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard)
+2. Select your server and group
+3. Click on a linked channel
+4. Click the settings/gear icon
+5. Configure the channel-specific overrides
+
+### Via Dashboard URL
+
+Channel settings can be accessed directly at:
+```
+https://oraxbot.com/dashboard/ownedgroup/channelSettings/<guildId>/<channelId>
+```
+
+## Settings Hierarchy
+
+When a channel doesn't have a specific override set, it falls back to the group default:
+
+```
+Channel Setting → Group Setting → Orax Default
+```
+
+<Callout type="info">
+  If you change a group-level setting, channels that don't have an override for that setting will automatically inherit the new group value.
+</Callout>

@@ -1,0 +1,122 @@
+@import 'nextra-theme-docs/style.css';
+
+:root {
+  --orax-purple: #8151fc;
+  --orax-blue: #00a1e8;
+  --orax-gradient: linear-gradient(37deg, #00a1e8 0%, #8151fc 100%);
+}
+
+.nextra-nav-container {
+  backdrop-filter: blur(8px);
+}
+
+.nextra-nav-container nav {
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+.orax-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.orax-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.orax-logo-text {
+  background: var(--orax-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.orax-hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.orax-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: var(--orax-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.orax-hero p {
+  font-size: 1.25rem;
+  color: var(--nextra-text);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.orax-hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.orax-hero-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.orax-hero-cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.orax-btn-primary {
+  background: var(--orax-gradient);
+  color: white !important;
+}
+
+.orax-btn-secondary {
+  border: 1px solid var(--nextra-border);
+  color: var(--nextra-text) !important;
+}
+
+.orax-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.orax-feature-card {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--nextra-border);
+  background: var(--nextra-card);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.orax-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.orax-feature-card h3 {
+  margin-top: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.orax-feature-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0;
+}

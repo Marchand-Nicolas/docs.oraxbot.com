@@ -1,0 +1,61 @@
+# Message Synchronization
+
+import { Callout } from 'nextra/components'
+
+Message synchronization is Orax's core feature. When a user sends a message in a linked channel, Orax instantly relays it to all other channels in the same interserv group using webhooks.
+
+## How It Works
+
+1. **Message Detection** — Orax listens for new messages in all linked channels via Discord's `messageCreate` event
+2. **Validation** — The bot checks if the message comes from a linked channel and isn't from another bot webhook (to prevent loops)
+3. **Filtering** — The message is checked against word blacklists, message filters, and ban lists
+4. **Transformation** — The message content is processed:
+   - Custom username and avatar patterns are applied
+   - Mentions are sanitized and mapped across servers
+   - Custom emojis (`:!emoji_name:`) are resolved
+   - Stickers are downloaded and converted if needed
+   - Attachments are validated (10MB limit per file)
+5. **Relay** — The transformed message is sent to all other linked channels via their respective webhooks
+6. **Mapping** — The original and mirrored message IDs are stored in the database for edit, delete, reaction, and thread sync
+
+## What Gets Synced
+
+| Content Type | Details |
+|---|---|
+| **Text** | All text content including markdown, code blocks, and mentions |
+| **Attachments** | Images, videos, and files (up to 10MB each) |
+| **Embeds** | Rich embeds, link previews, and bot embeds |
+| **Stickers** | All formats (PNG, APNG, GIF, Lottie) — converted to GIF when needed |
+| **Polls** | Discord polls are relayed and votes are aggregated on expiry |
+| **Forwarded messages** | Discord's forwarded messages with special formatting |
+| **Components** | Discord components v2 are supported |
+
+## Message Direction
+
+Channels can be configured with different message directions:
+
+| Direction | Behavior |
+|---|---|
+| **All messages** (default) | Messages flow both ways — send and receive |
+| **Incoming only** | The channel receives messages from other servers but doesn't send its own |
+| **Outgoing only** | The channel sends messages to other servers but doesn't receive any |
+
+<Callout type="info">
+  Message direction is a per-channel setting that can be configured from the [dashboard](https://oraxbot.com/dashboard) or via the [channel settings](/configuration/channel-settings).
+</Callout>
+
+## Webhooks
+
+Orax creates a webhook in each linked channel. This webhook is used to post messages from other servers. The webhook appears as a regular user in the channel with the sender's username and avatar (or custom patterns if configured).
+
+<Callout type="warning">
+  Do not delete or modify the Orax webhook in your channel. If the webhook is deleted, message sync will stop working. Use the `/debug-channel` command to diagnose webhook issues.
+</Callout>
+
+## Data Retention
+
+Message mapping data (used for sync) is retained for **30 days**. After that, old mappings are automatically cleaned up. This means you can edit, delete, react to, or thread on a message for up to 30 days after it was sent, and the action will be synced.
+
+## Performance
+
+Orax uses **automatic sharding** via Discord.js `ShardingManager` to handle large numbers of servers efficiently. The shard count is automatically determined based on the number of guilds the bot is in.

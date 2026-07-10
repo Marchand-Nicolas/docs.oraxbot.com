@@ -1,0 +1,42 @@
+# Features Overview
+
+import { Cards } from 'nextra/components'
+
+Orax provides a comprehensive set of features for cross-server communication on Discord. Here's everything Orax can do:
+
+<Cards>
+  <Cards.Card title="Message Sync" href="/features/message-sync" />
+  <Cards.Card title="Edit & Delete Sync" href="/features/edit-delete-sync" />
+  <Cards.Card title="Reactions" href="/features/reactions" />
+  <Cards.Card title="Threads" href="/features/threads" />
+  <Cards.Card title="Stickers" href="/features/stickers" />
+  <Cards.Card title="Polls" href="/features/polls" />
+  <Cards.Card title="Custom Emojis" href="/features/custom-emojis" />
+  <Cards.Card title="Telegram Bridge" href="/features/telegram" />
+</Cards>
+
+## Feature Summary
+
+### Message Synchronization
+Orax's core feature. Messages sent in any linked channel are instantly relayed to all other channels in the same interserv group. Supports text, attachments, embeds, stickers, polls, and forwarded messages.
+
+### Edit & Delete Sync
+When you edit or delete a message, the change is automatically propagated to all mirrored copies across every connected server. Delete sync can be disabled per group.
+
+### Reactions
+Reactions added to a message are replicated across all mirrored copies of that message in other servers. Reactions work bidirectionally.
+
+### Threads
+When a thread is created on a message, corresponding threads are automatically created on all mirrored messages. Thread deletions are also synchronized.
+
+### Stickers
+All sticker formats are supported: PNG, APNG, GIF, and Lottie. Lottie and APNG stickers are automatically converted to GIF format. A local file cache prevents redundant downloads.
+
+### Polls
+When a Discord poll expires, Orax aggregates the vote counts from all mirrored copies of the poll across all servers and posts the combined results.
+
+### Custom Emojis
+Type `:!emoji_name:` to insert an emoji by name. The bot resolves it to actual Discord emoji markup if accessible, or converts it to a markdown image link otherwise.
+
+### Telegram Bridge
+Telegram groups can join interserv groups alongside Discord servers, bridging chat between the two platforms. Telegram users can participate in the same conversations as Discord users.

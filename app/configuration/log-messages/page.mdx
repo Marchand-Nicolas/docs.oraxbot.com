@@ -1,0 +1,48 @@
+# Log Messages
+
+import { Callout } from 'nextra/components'
+
+The log messages feature lets you log interserv messages to a specific Discord channel in your server. This is useful for moderation, auditing, and keeping track of what's being said across servers.
+
+## What Gets Logged
+
+When enabled, the following messages are logged to the designated log channel:
+
+| Event | Logged? |
+|---|---|
+| **Blocked messages** (by blacklist or filters) | ✅ |
+| **Banned user messages** | ✅ |
+| **Messages from locked groups** | ✅ |
+
+<Callout type="info">
+  The log channel is primarily for moderation purposes — it logs messages that were **blocked** from being relayed, not all messages that were successfully sent.
+</Callout>
+
+## Inline Ban Buttons
+
+When a message is logged, the log entry includes an inline **ban button**. This allows moderators to quickly ban the user who sent the blocked message directly from the log channel, without needing to use the `/ban-user-from-interserv-group` command.
+
+## How to Configure
+
+### Via Dashboard
+
+1. Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard)
+2. Select your server and group
+3. Under **Moderation & Security**, find the **Log Messages** setting
+4. Select the Discord channel where logs should be sent
+5. Save the changes
+
+### Via Discord
+
+Use the `/manage-group` command and select the "Log Messages" option.
+
+<Callout type="tip">
+  Create a dedicated, private channel for logs that only moderators and admins can see. This keeps moderation actions transparent to your team without exposing them to regular members.
+</Callout>
+
+## Notes
+
+- Log messages are sent to a channel in **your server only** — each server in the group can configure its own log channel
+- The log channel setting is **per-group**, so you need one log channel per group
+- The bot needs **Send Messages** and **Embed Links** permissions in the log channel
+- If the log channel is deleted or the bot loses permissions, logging will silently stop

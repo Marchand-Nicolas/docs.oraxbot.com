@@ -1,0 +1,41 @@
+# /lock
+
+import { Callout } from 'nextra/components'
+
+Prevents non-admin users from sending messages in the interserv group. This is useful for temporary lockdowns during incidents or moderation.
+
+## Usage
+
+```
+/lock
+```
+
+## Permissions
+
+- **Moderator** — The user must be a group moderator or have Manage Messages permission
+
+## What It Does
+
+1. Enables the lock on the interserv group
+2. Non-admin users' messages in all linked channels will be blocked
+3. Only moderators and admins can send messages while the lock is active
+4. A notification is sent to inform users that the group is locked
+
+## Example
+
+```
+/lock
+```
+
+**Bot response:**
+> 🔒 The interserv group **"My Awesome Group"** has been locked.
+> 
+> Only moderators and administrators can send messages until the group is unlocked.
+
+## Unlocking
+
+To reverse the lock, use the [`/unlock`](/commands/unlock) command.
+
+<Callout type="warning">
+  Locking affects **all** channels in the group across all servers, not just the channel where the command was used.
+</Callout>

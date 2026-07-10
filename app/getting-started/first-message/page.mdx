@@ -1,0 +1,56 @@
+# Your First Message
+
+import { Callout } from 'nextra/components'
+
+Now that your channel is linked to an interserv group, you're ready to start chatting across servers!
+
+## Sending a Message
+
+Simply type a message in your linked channel as you normally would. Orax will automatically:
+
+1. **Detect the message** in your channel
+2. **Transform it** — apply custom usernames, avatars, and formatting rules
+3. **Relay it** to all other channels in the same interserv group via webhooks
+
+The message will appear in other servers with your username (or a custom pattern if configured) and your avatar.
+
+## What Gets Synced?
+
+| Feature | Synced? | Notes |
+|---|---|---|
+| Text messages | ✅ | Including mentions, code blocks, and formatting |
+| Attachments | ✅ | Images, videos, files (up to 10MB per file) |
+| Embeds | ✅ | Rich embeds from bots and link previews |
+| Stickers | ✅ | All formats, including Lottie (converted to GIF) |
+| Message edits | ✅ | Edits are propagated to all mirrored messages |
+| Message deletions | ✅ | Can be disabled per group |
+| Reactions | ✅ | Added reactions are replicated across servers |
+| Threads | ✅ | Thread creation and deletion are synced |
+| Polls | ✅ | Votes are aggregated when the poll expires |
+| Forwarded messages | ✅ | Handled with special formatting |
+
+## Custom Emojis
+
+Orax supports a custom emoji system. You can type `:!emoji_name:` to insert an emoji by name. The bot will resolve it to the actual Discord emoji markup if it has access to that emoji. If the bot can't access the emoji, it converts it to a markdown image link.
+
+## Warning Messages
+
+<Callout type="info">
+  By default, Orax shows a one-time warning message to users the first time they send a message in a linked channel, informing them that their messages will be synced to other servers. This can be customized or disabled in the [group settings](/configuration/group-settings).
+</Callout>
+
+## Try These Commands
+
+Once you're chatting, try these useful commands:
+
+- `/channel-infos` — See information about the interserv group linked to the current channel
+- `/track` — Trace a synced message back to its original author and server
+- `/rules` — View the group's custom rules (if set)
+- `/debug-channel` — Run diagnostics on the channel's webhook and permissions
+
+## Tips
+
+- **Be respectful** — remember that your messages are visible to people in other servers
+- **Check the rules** — use `/rules` to see if the group has specific rules
+- **Use the dashboard** — visit [oraxbot.com/dashboard](https://oraxbot.com/dashboard) for advanced settings
+- **Configure your group** — explore the [configuration options](/configuration) to customize usernames, filters, and more

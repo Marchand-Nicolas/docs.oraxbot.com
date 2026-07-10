@@ -1,0 +1,46 @@
+# Getting Started
+
+import { Steps, Callout } from 'nextra/components'
+
+Welcome to Orax Bot! This guide will walk you through everything you need to start syncing channels across your Discord servers.
+
+## Prerequisites
+
+<Callout type="info">
+  To use Orax, you need:
+  - A Discord account with **Administrator** or **Manage Messages** permissions in your server
+  - A Discord server where you have admin access
+</Callout>
+
+## Quick Start
+
+<Steps>
+
+### Invite the Bot
+
+Add Orax to your Discord server using the [official invite link](https://discord.com/api/oauth2/authorize?client_id=812298057470967858&permissions=533113138240&scope=bot). You'll need to grant the requested permissions for the bot to function properly.
+
+### Create an Interserv Group
+
+Use the `/create-interserv-group` slash command to create a new group. Orax will generate a unique join link that you can share with other server admins.
+
+### Link a Channel
+
+Use the `/link-channel` command with the join link to connect a channel to the group. Messages sent in this channel will be synced to all other linked channels.
+
+### Start Chatting
+
+That's it! Messages sent in any linked channel are now automatically replicated across all connected servers. Edits, deletions, reactions, and threads are synced too.
+
+</Steps>
+
+## What's Next?
+
+import { Cards } from 'nextra/components'
+
+<Cards>
+  <Cards.Card title="Features Overview" href="/features" />
+  <Cards.Card title="All Commands" href="/commands" />
+  <Cards.Card title="Configuration Guide" href="/configuration" />
+  <Cards.Card title="Orax Plus" href="/premium" />
+</Cards>

@@ -1,0 +1,49 @@
+# Moderation
+
+import { Cards, Callout } from 'nextra/components'
+
+Orax provides several moderation tools to keep your interserv groups safe and well-managed.
+
+<Cards>
+  <Cards.Card title="Banning Users" href="/moderation/banning" />
+  <Cards.Card title="Locking Groups" href="/moderation/locking" />
+</Cards>
+
+## Moderation Tools Overview
+
+| Tool | Description |
+|---|---|
+| **User Bans** | Ban individual users from the interserv group |
+| **Group Lock** | Temporarily prevent all non-admins from sending messages |
+| **Word Blacklist** | Block messages containing specific words |
+| **Message Filters** | Advanced rule-based message filtering |
+| **Log Channel** | Log blocked messages with inline ban buttons |
+| **Moderators** | Designate specific users as group moderators |
+| **Track** | Trace any synced message to its original author |
+
+<Callout type="info">
+  All moderation actions are **group-wide** — they affect all channels and servers in the interserv group, not just the channel where the command was used.
+</Callout>
+
+## Moderator Permissions
+
+The following users have moderation powers in an interserv group:
+
+1. **Server Administrators** — Always have full moderation access
+2. **Users with Manage Messages permission** — Are moderators by default
+3. **Custom moderator list** — If configured, only users on this list (plus admins) are moderators
+
+See [Moderators configuration](/configuration/moderators) for details on setting up the custom moderator list.
+
+## Cross-Server Moderation
+
+Since interserv groups span multiple servers, moderation is a shared responsibility:
+
+- A moderator in **any** server can ban users for the **entire** group
+- A lock affects **all** channels across **all** servers
+- Each server can independently configure its own [log channel](/configuration/log-messages)
+- Banned users are banned from the group, not from individual Discord servers
+
+<Callout type="warning">
+  Only designate moderators you trust, as they have the power to affect all servers in the group.
+</Callout>

@@ -1,0 +1,46 @@
+# /channel-infos
+
+import { Callout } from 'nextra/components'
+
+Displays information about the interserv group linked to the current channel, including a list of all connected servers.
+
+## Usage
+
+```
+/channel-infos
+```
+
+## Permissions
+
+- **Everyone** — Any server member can use this command
+
+## What It Shows
+
+- **Group name** — The name of the interserv group
+- **Connected servers** — A list of all servers with channels linked to this group
+- **Channel count** — The total number of linked channels
+- **Group owner** — The server that created the group
+
+## Example
+
+```
+/channel-infos
+```
+
+**Bot response:**
+> 📋 **Interserv Group: My Awesome Group**
+> 
+> **Owner:** Server Alpha
+> **Connected servers:** 5
+> **Linked channels:** 7
+> 
+> **Servers:**
+> 1. Server Alpha
+> 2. Server Beta
+> 3. Server Gamma
+> 4. Server Delta
+> 5. Server Epsilon
+
+<Callout type="info">
+  If the group has published servers, they may be visible with direct Discord invite links in the response.
+</Callout>

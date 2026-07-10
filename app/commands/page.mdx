@@ -1,0 +1,42 @@
+# Commands Overview
+
+import { Callout } from 'nextra/components'
+
+Orax uses Discord slash commands for all interactions. Commands are registered globally and available in any server where the bot is present.
+
+## All Commands
+
+| Command | Permission | Description |
+|---|---|---|
+| [`/create-interserv-group`](/commands/create-interserv-group) | Administrator | Create a new interserv group and get a join link |
+| [`/link-channel`](/commands/link-channel) | Manage Messages | Link a channel to an existing interserv group |
+| [`/unlink-channel`](/commands/unlink-channel) | Administrator | Unlink a channel from all interserv groups |
+| [`/channel-infos`](/commands/channel-infos) | Everyone | View info about the group linked to the current channel |
+| [`/debug-channel`](/commands/debug-channel) | Everyone | Run diagnostics on the channel's webhook and permissions |
+| [`/lock`](/commands/lock) | Moderator | Prevent non-admins from sending messages in the group |
+| [`/unlock`](/commands/unlock) | Moderator | Reverse a lock, allowing messages again |
+| [`/manage-group`](/commands/manage-group) | Manage Guild | Interactive button panel for group settings |
+| [`/ban-user-from-interserv-group`](/commands/ban-user) | Moderator | Ban a user from the interserv group |
+| [`/unban-user-from-interserv-group`](/commands/unban-user) | Moderator | Unban a user from the interserv group |
+| [`/track`](/commands/track) | Everyone | Trace a synced message to its original author and server |
+| [`/rules`](/commands/rules) | Everyone | View the group's custom rules |
+
+<Callout type="info">
+  **Moderator** permission means the user must be a group moderator (configured in group settings) or have **Manage Messages** permission in the server by default.
+</Callout>
+
+## Using Commands
+
+All Orax commands are slash commands. Type `/` in any channel where the bot is present to see available commands. You can also use the command palette in Discord to search for commands.
+
+## Command Permissions
+
+- **Administrator** — The user must have the Administrator permission in the Discord server
+- **Manage Messages** — The user must have the Manage Messages permission
+- **Manage Guild** — The user must have the Manage Server permission
+- **Moderator** — The user must be listed as a moderator in the group settings, or have Manage Messages permission by default
+- **Everyone** — Any server member can use this command
+
+## Need Help?
+
+If you're having trouble with commands, try the `/debug-channel` command to diagnose common issues. You can also visit our [support Discord server](https://discord.gg/e3pBtbum4A) for help.

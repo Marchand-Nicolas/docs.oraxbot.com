@@ -1,0 +1,61 @@
+# Custom Rules
+
+import { Callout } from 'nextra/components'
+
+Custom rules are a text-based set of rules that can be displayed to users via the `/rules` command. This helps establish community guidelines for your interserv group.
+
+## Setting Custom Rules
+
+You can set any text as the group's rules. This can include:
+
+- General conduct rules
+- Topic guidelines
+- Posting rules
+- Links to external rule pages
+
+## How to Configure
+
+### Via Dashboard
+
+1. Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard)
+2. Select your server and group
+3. Under **Moderation & Security**, find the **Custom Rules** field
+4. Enter your rules text
+5. Save the changes
+
+### Via Discord
+
+Use the `/manage-group` command and select the "Rules" option.
+
+## Viewing Rules
+
+Any user in a linked channel can view the rules by using:
+
+```
+/rules
+```
+
+The bot will display the rules in an embed format.
+
+## Example Rules
+
+```
+1. Be respectful to all members across all servers
+2. No spam, advertising, or self-promotion
+3. Keep conversations on-topic
+4. No NSFW content
+5. No harassment or hate speech
+6. Follow Discord's Terms of Service and Community Guidelines
+7. Moderators reserve the right to ban users who violate these rules
+```
+
+<Callout type="info">
+  Custom rules apply group-wide and are visible to all users in all connected servers via the `/rules` command.
+</Callout>
+
+## Notes
+
+- Rules are plain text — no markdown formatting is supported in the rules field
+- Rules are visible to everyone in the group, not just moderators
+- There is no character limit, but keep rules concise for readability
+- Rules are separate from the word blacklist and message filters — they are informational only and do not automatically enforce anything

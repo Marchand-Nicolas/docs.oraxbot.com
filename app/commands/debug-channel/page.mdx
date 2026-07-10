@@ -1,0 +1,49 @@
+# /debug-channel
+
+import { Callout } from 'nextra/components'
+
+Runs diagnostic checks on the current channel to help troubleshoot issues with message synchronization.
+
+## Usage
+
+```
+/debug-channel
+```
+
+## Permissions
+
+- **Everyone** — Any server member can use this command
+
+## What It Checks
+
+| Check | Description |
+|---|---|
+| **Webhook exists** | Verifies that the Orax webhook is present in the channel |
+| **Webhook functional** | Tests if the webhook can be used to send messages |
+| **Bot permissions** | Checks if the bot has the required permissions |
+| **Channel linked** | Confirms the channel is linked to an interserv group |
+| **Group active** | Verifies the interserv group is valid and active |
+
+## Example Output
+
+**All checks pass:**
+> ✅ **Debug Results for #general**
+> 
+> - ✅ Webhook found: Orax#1234
+> - ✅ Webhook is functional
+> - ✅ Bot has required permissions
+> - ✅ Channel is linked to group: "My Awesome Group"
+> - ✅ Group is active
+
+**Issues found:**
+> ⚠️ **Debug Results for #general**
+> 
+> - ❌ Webhook not found — The Orax webhook was deleted
+> - ⚠️ Please unlink and re-link this channel to fix the issue
+> - ✅ Bot has required permissions
+> - ✅ Channel is linked to group: "My Awesome Group"
+> - ✅ Group is active
+
+<Callout type="tip">
+  If you're experiencing issues with message sync, run this command first to identify the problem. The most common issue is a deleted webhook.
+</Callout>

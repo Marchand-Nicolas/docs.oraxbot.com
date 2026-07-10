@@ -1,0 +1,133 @@
+# FAQ
+
+import { Callout } from 'nextra/components'
+
+Frequently asked questions about Orax Bot.
+
+## General
+
+### What is Orax?
+
+Orax is a Discord bot that creates interserver (interserv) chat bridges. It synchronizes messages, edits, deletions, reactions, threads, stickers, and polls across multiple Discord servers — and even Telegram groups.
+
+### Is Orax free?
+
+Yes! Orax is 100% free to use. The free plan allows 2 groups per server and 5 channels per group. You can get [Orax Plus](/premium) for higher limits by voting on Top.gg (free) or subscribing for $2.99/month.
+
+### How do I invite Orax to my server?
+
+Use the [official invite link](https://discord.com/api/oauth2/authorize?client_id=812298057470967858&permissions=533113138240&scope=bot). See [Invite the Bot](/getting-started/invite-bot) for details.
+
+### Where can I get support?
+
+Join our [Discord support server](https://discord.gg/e3pBtbum4A) for help with any issues.
+
+## Setup
+
+### What permissions does Orax need?
+
+Orax needs Manage Webhooks, Send Messages, Embed Links, Attach Files, Read Message History, Add Reactions, and Create Public Threads permissions. See [Invite the Bot](/getting-started/invite-bot) for the full list.
+
+### Why are my messages not syncing?
+
+Common causes:
+- The Orax webhook was deleted — use `/debug-channel` to check
+- The bot lost permissions in the channel
+- The channel was unlinked
+- The group is locked
+
+Run `/debug-channel` to diagnose the issue.
+
+### Can I link multiple channels to the same group?
+
+Yes! You can link as many channels as your plan allows (5 for free, 50 for Orax Plus) to the same or different groups.
+
+### Can I use Orax in a Telegram group?
+
+Yes! Orax supports bridging Telegram groups with Discord channels. See [Telegram Bridge](/features/telegram) for setup instructions.
+
+## Features
+
+### Are reactions synced?
+
+Yes! Reactions added to any message are replicated across all mirrored copies. See [Reactions](/features/reactions).
+
+### Are message edits and deletions synced?
+
+Yes! Both edits and deletions are automatically propagated. Delete sync can be disabled per group. See [Edit & Delete Sync](/features/edit-delete-sync).
+
+### Do stickers work?
+
+Yes! All sticker formats (PNG, APNG, GIF, Lottie) are supported. APNG and Lottie stickers are automatically converted to GIF. See [Stickers](/features/stickers).
+
+### How do custom emojis work?
+
+Type `:!emoji_name:` to insert an emoji by name. The bot searches all its servers for an emoji with that name. See [Custom Emojis](/features/custom-emojis).
+
+### What happens when a poll expires?
+
+Orax aggregates vote counts from all mirrored copies of the poll across all servers and posts the combined results. See [Polls](/features/polls).
+
+## Configuration
+
+### How do I change how usernames appear?
+
+Use the custom usernames pattern with variables like `{username}`, `{serverName}`, `{nickname}`, and `{role}`. See [Custom Usernames](/configuration/custom-usernames).
+
+### Can I block specific words?
+
+Yes! Use the word blacklist to block messages containing specific words. For more advanced filtering, use [message filters](/configuration/message-filters).
+
+### Can I set different settings for different channels?
+
+Yes! Channel settings can override group defaults for message direction, warning messages, and reply style. See [Channel Settings](/configuration/channel-settings).
+
+### How do I make my channel read-only?
+
+Set the channel's message direction to "Incoming only" — it will receive messages from other servers but won't send its own. See [Channel Settings](/configuration/channel-settings).
+
+## Moderation
+
+### How do I ban a user from the group?
+
+Use `/ban-user-from-interserv-group` with a message link or user ID. See [Banning Users](/moderation/banning).
+
+### Can I temporarily stop all messages?
+
+Yes! Use `/lock` to prevent non-admins from sending messages. Use `/unlock` to reverse it. See [Locking Groups](/moderation/locking).
+
+### How do I find who sent a specific message?
+
+Use `/track` with a message link to trace a synced message to its original author and server. See [Track](/commands/track).
+
+## Privacy
+
+### What data does Orax store?
+
+Orax stores only: server IDs, channel IDs, webhook IDs, and message mapping data (for 30 days). No message content, member lists, or role data is stored permanently. See the [Privacy Policy](https://oraxbot.com/privacy).
+
+### How long is message data kept?
+
+Message mapping data (used for sync) is retained for **30 days**, then automatically cleaned up.
+
+### How do I delete my data?
+
+Contact us at nicomarchand29@gmail.com to request data deletion.
+
+## Orax Plus
+
+### What does Orax Plus give me?
+
+Orax Plus increases your limits: 100 groups per server (up from 2) and 50 channels per group (up from 5). All features are available on the free plan. See [Orax Plus](/premium).
+
+### How do I get Orax Plus for free?
+
+Vote for Orax on [Top.gg](https://top.gg/bot/812298057470967858/vote). Each vote grants ~1 week of Orax Plus. See [Vote for Orax Plus](/premium/vote).
+
+### Can I cancel my Stripe subscription?
+
+Yes! You can cancel at any time. Orax Plus remains active until the end of the current billing period.
+
+## Still Have Questions?
+
+If your question wasn't answered here, join our [Discord support server](https://discord.gg/e3pBtbum4A) and we'll be happy to help!

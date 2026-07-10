@@ -1,0 +1,35 @@
+# /unlock
+
+Reverses a lock, allowing all users to send messages in the interserv group again.
+
+## Usage
+
+```
+/unlock
+```
+
+## Permissions
+
+- **Moderator** — The user must be a group moderator or have Manage Messages permission
+
+## What It Does
+
+1. Disables the lock on the interserv group
+2. All users can send messages in all linked channels again
+3. A notification is sent to inform users that the group is unlocked
+
+## Example
+
+```
+/unlock
+```
+
+**Bot response:**
+> 🔓 The interserv group **"My Awesome Group"** has been unlocked.
+> 
+> All users can now send messages again.
+
+## Notes
+
+- This only works if the group was previously locked with [`/lock`](/commands/lock)
+- Unlocking affects **all** channels in the group across all servers

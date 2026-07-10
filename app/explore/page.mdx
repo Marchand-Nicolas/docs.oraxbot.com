@@ -1,0 +1,64 @@
+# Explore
+
+import { Cards, Callout } from 'nextra/components'
+
+Explore is Orax's public directory of interserv groups. Server owners can publish their groups for discovery, and users can browse, vote, and join published groups.
+
+<Cards>
+  <Cards.Card title="Publish a Group" href="/explore/publish" />
+  <Cards.Card title="Join a Group" href="/explore/join" />
+</Cards>
+
+## What Is Explore?
+
+The Explore page at [oraxbot.com/explore](https://oraxbot.com/explore) is a community-driven directory where:
+
+- **Group owners** can publish their interserv groups with a description and image
+- **Users** can browse published groups, see connected servers, and vote for their favorites
+- **Server admins** can submit join requests to published groups
+- **Group owners** can accept or deny join requests
+
+<Callout type="info">
+  Explore is currently in **beta**. Features and UI may change as we gather feedback.
+</Callout>
+
+## Key Features
+
+### Browsing Groups
+- Paginated listing of all published interserv groups
+- Each group shows its name, description, image, and message count
+- Groups are sorted by activity and votes
+
+### Voting
+- Users can vote for groups they like (24-hour cooldown per group)
+- More votes = higher visibility in the directory
+- Voting helps surface active and popular groups
+
+### Joining Groups
+- Submit a join request to a published group
+- The group owner receives the request in their designated proposals channel
+- The owner can accept or deny the request with a button click
+- If accepted, your channel is linked to the group
+
+### Public Servers
+- Each group can show its public servers (if enabled by server owners)
+- Public servers include direct Discord invite links
+- Server owners control their server's public visibility in [server settings](/configuration#server-level-settings)
+
+## Explore Page Sections
+
+| Section | Description |
+|---|---|
+| **Group Directory** | Browse all published groups with pagination |
+| **Group Detail** | View a specific group's description, image, connected servers, and vote count |
+| **Publish Form** | Configure your group's explore listing |
+| **Join Request** | Submit a request to join a published group |
+
+## Accessing Explore
+
+- **Website**: [oraxbot.com/explore](https://oraxbot.com/explore)
+- **Dashboard**: Click "Explore" in the dashboard sidebar
+
+<Callout type="tip">
+  You need to be logged in with Discord to vote, publish, or join groups. Authentication is handled via Discord OAuth.
+</Callout>

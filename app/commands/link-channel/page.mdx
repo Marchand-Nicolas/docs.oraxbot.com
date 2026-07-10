@@ -1,0 +1,45 @@
+# /link-channel
+
+import { Callout } from 'nextra/components'
+
+Links the current channel to an existing interserv group using a join link.
+
+## Usage
+
+```
+/link-channel
+```
+
+## Permissions
+
+- **Manage Messages** — Required to use this command
+
+## What It Does
+
+1. Prompts you to enter a join link for an interserv group
+2. Verifies the join link is valid
+3. Creates a webhook in the channel for message relay
+4. Registers the channel in the group's linked channels
+5. Starts synchronizing messages
+
+## Example
+
+```
+/link-channel
+> Enter the join link: https://oraxbot.com/join/abc123xyz
+```
+
+**Bot response:**
+> ✅ This channel has been linked to the interserv group **"My Awesome Group"**!
+> 
+> Messages sent here will now be synced with all other linked channels.
+
+<Callout type="warning">
+  The bot needs **Manage Webhooks** permission in the channel to create the relay webhook. If the bot doesn't have this permission, the link will fail.
+</Callout>
+
+## Checking the Link
+
+After linking, you can verify the connection with:
+- `/channel-infos` — See group info and connected servers
+- `/debug-channel` — Run full diagnostics

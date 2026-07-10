@@ -1,0 +1,44 @@
+# Threads
+
+import { Callout } from 'nextra/components'
+
+When a thread is created on a message in a linked channel, Orax automatically creates corresponding threads on all mirrored copies of that message across every connected server. Thread deletions are also synchronized.
+
+## Thread Creation Sync
+
+1. A user creates a thread on a message in a linked channel
+2. Orax detects the thread creation via Discord's `threadCreate` event
+3. The bot looks up all mirrored copies of the parent message in the database
+4. A corresponding thread is created on each mirrored message
+5. Thread mappings are stored in the database for future sync
+
+## Thread Deletion Sync
+
+When a thread is deleted in a linked channel:
+
+1. Orax detects the deletion via Discord's `threadDelete` event
+2. The bot looks up all mirrored copies of the thread in the database
+3. Each corresponding thread is deleted in all connected servers
+
+## Supported Thread Types
+
+| Thread Type | Supported? |
+|---|---|
+| Text channel threads | ✅ |
+| Forum channel threads | ✅ |
+| Announcement threads | ✅ |
+
+<Callout type="info">
+  Messages sent within synced threads are also synchronized across servers, just like messages in the main channel.
+</Callout>
+
+## Thread Naming
+
+When a thread is created on a mirrored message, the thread name is copied from the original thread. If the thread name exceeds Discord's limit, it will be truncated.
+
+## Limitations
+
+- Thread creation only works if the original message still exists (within the 30-day retention window)
+- The bot needs **Create Public Threads** permission in each channel
+- If the parent message was deleted before the thread sync could occur, the thread sync will fail
+- Thread archive/unarchive status is **not** currently synced

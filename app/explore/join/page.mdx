@@ -1,0 +1,77 @@
+# Join a Group
+
+import { Steps, Callout } from 'nextra/components'
+
+You can join a published interserv group from the Explore page by submitting a join request to the group owner.
+
+## How to Join
+
+<Steps>
+
+### Browse the Explore Page
+
+Visit [oraxbot.com/explore](https://oraxbot.com/explore) and browse published groups.
+
+### Select a Group
+
+Click on a group to see its details, including description, image, connected servers, and vote count.
+
+### Submit a Join Request
+
+Click the "Join" button. You'll be prompted to:
+
+1. Select which of your servers you want to join from
+2. Select which channel in that server should be linked
+
+### Wait for Approval
+
+Your join request is sent to the group owner's proposals channel. The owner can accept or deny your request.
+
+### Get Linked
+
+If accepted, your selected channel is automatically linked to the group, and message sync begins immediately.
+
+</Steps>
+
+## Join Request Flow
+
+1. You submit a join request with your server and channel selection
+2. A proposal message appears in the group owner's proposals channel
+3. The proposal shows:
+   - Your server name
+   - The channel you want to link
+   - Your server's public information (if available)
+4. The owner clicks **Accept** or **Deny**
+5. You receive a notification of the decision
+
+<Callout type="info">
+  Join requests are not instant — they require approval from the group owner. Be patient and make sure your server is presentable (set a public name and invite link in server settings).
+</Callout>
+
+## Tips for Getting Accepted
+
+- **Set your server's public name** — Go to dashboard settings and set a clear, recognizable public name
+- **Enable public visibility** — Toggle your server to public so the owner can see your server info
+- **Set a public invite link** — Provide a working Discord invite link so the owner can check out your server
+- **Choose the right channel** — Select a channel that's appropriate for the group's topic
+
+## Joining via Link
+
+You can also join a group directly via a join link (if the group owner shared one with you):
+
+1. Go to `oraxbot.com/join/<link>`
+2. Select your server and channel
+3. The channel is linked immediately (no approval needed for direct links)
+
+<Callout type="tip">
+  Direct join links bypass the approval process. Group owners share these links privately with specific servers they want to invite.
+</Callout>
+
+## After Joining
+
+Once your channel is linked to the group:
+
+- Messages start syncing immediately
+- You can use all [commands](/commands) in the linked channel
+- You can configure [channel-specific settings](/configuration/channel-settings)
+- The group owner can still ban you or unlink your channel if needed

@@ -1,0 +1,83 @@
+# Link a Channel
+
+import { Steps, Callout } from 'nextra/components'
+
+Linking a channel connects it to an interserv group, enabling message synchronization with all other channels in the same group.
+
+## Linking a Channel
+
+<Steps>
+
+### Get the Join Link
+
+You need the join link for the interserv group you want to connect to. The group creator can find this link in:
+- The bot's response to `/create-interserv-group`
+- The [Orax Dashboard](https://oraxbot.com/dashboard) under the group's details
+- The `/channel-infos` command in an already-linked channel
+
+### Run the Command
+
+In the channel you want to link, use:
+
+```
+/link-channel
+```
+
+You'll need **Manage Messages** permission to use this command.
+
+### Enter the Join Link
+
+Paste the join link when prompted. Orax will verify the link and connect your channel to the group.
+
+### Start Chatting
+
+Your channel is now linked! Any message sent in this channel will be automatically relayed to all other channels in the same interserv group, and vice versa.
+
+</Steps>
+
+<Callout type="warning">
+  The bot needs **Manage Webhooks** permission in the channel to create the webhook used for message relay. If the bot doesn't have this permission, the link will fail.
+</Callout>
+
+## What Happens When You Link?
+
+When a channel is linked to a group, Orax:
+
+1. **Creates a webhook** in the channel — this is how messages from other servers are posted
+2. **Registers the channel** in the group's linked channels list
+3. **Starts syncing** — new messages, edits, deletions, reactions, and threads will be synchronized
+
+## Linking Multiple Channels
+
+You can link multiple channels in your server to the same or different groups:
+
+- **Same group**: Link multiple channels to create multiple entry points for the same conversation
+- **Different groups**: Link different channels to different groups for separate conversations
+
+## Unlinking a Channel
+
+To remove a channel from a group, use:
+
+```
+/unlink-channel
+```
+
+This removes the channel from all interserv groups it's connected to. You need **Administrator** permission to unlink.
+
+## Telegram Integration
+
+Telegram groups can also join interserv groups. In your Telegram group, use:
+
+```
+/setup_interserv_group <join-link>
+```
+
+This connects the Telegram group to the same interserv group, bridging Discord and Telegram chat.
+
+<Callout type="info">
+  Learn more about the [Telegram bridge](/features/telegram).
+</Callout>
+
+## What's Next?
+
+Now that your channel is linked, [send your first synced message](/getting-started/first-message)!

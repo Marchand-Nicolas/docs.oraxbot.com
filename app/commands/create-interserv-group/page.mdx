@@ -1,0 +1,56 @@
+# /create-interserv-group
+
+import { Callout } from 'nextra/components'
+
+Creates a new interserv group and generates a unique join link that other server admins can use to connect their channels.
+
+## Usage
+
+```
+/create-interserv-group
+```
+
+## Permissions
+
+- **Administrator** — Required to use this command
+
+## What It Does
+
+1. Creates a new interserv group in the database
+2. Generates a unique join link
+3. Returns the join link and group name in the response
+
+## Response
+
+The bot responds with:
+- The group name
+- The join link (copyable)
+- Instructions on how to use the link
+
+## Example
+
+```
+/create-interserv-group
+```
+
+**Bot response:**
+> ✅ Interserv group **"My Awesome Group"** has been created!
+> 
+> 🔗 Join link: `https://oraxbot.com/join/abc123xyz`
+> 
+> Share this link with other server admins to let them connect their channels to this group.
+
+<Callout type="tip">
+  You can also manage your groups and get join links from the [Orax Dashboard](https://oraxbot.com/dashboard).
+</Callout>
+
+## Service Limits
+
+| Plan | Max Groups |
+|---|---|
+| Free | 2 groups per server |
+| Orax Plus | 100 groups per server |
+
+<Callout type="info">
+  Need more groups? [Vote on Top.gg](/premium/vote) for free Orax Plus, or [subscribe](/premium) for $2.99/month.
+</Callout>

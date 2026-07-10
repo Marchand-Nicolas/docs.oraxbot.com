@@ -1,0 +1,58 @@
+# Create an Interserv Group
+
+import { Steps, Callout } from 'nextra/components'
+
+An **interserv group** is a collection of channels across different Discord servers that share synchronized messages. When you create a group, Orax generates a unique join link that other server admins can use to connect their channels.
+
+## Creating a Group
+
+<Steps>
+
+### Run the Command
+
+In any channel of your server, use the slash command:
+
+```
+/create-interserv-group
+```
+
+You need **Administrator** permission to use this command.
+
+### Name Your Group
+
+Provide a name for your interserv group. This name will be visible to all connected servers and in the `/channel-infos` command.
+
+### Get Your Join Link
+
+Orax will respond with a unique join link for your new group. This link is what you share with other server admins so they can link their channels to the same group.
+
+</Steps>
+
+<Callout type="info">
+  The join link is also accessible from the [Orax Dashboard](https://oraxbot.com/dashboard). You can copy it, share it, or regenerate it at any time.
+</Callout>
+
+## Service Limits
+
+The number of groups you can create depends on your plan:
+
+| Plan | Max Groups per Server | Max Channels per Group |
+|---|---|---|
+| **Free** | 2 | 5 |
+| **Orax Plus** | 100 | 50 |
+
+<Callout type="tip">
+  You can get Orax Plus for free by [voting on Top.gg](/premium/vote), or subscribe for $2.99/month via Stripe.
+</Callout>
+
+## Managing Your Group
+
+Once created, you can manage your group through:
+
+- **Discord commands** — use `/manage-group` for an interactive settings panel
+- **Orax Dashboard** — visit [oraxbot.com/dashboard](https://oraxbot.com/dashboard) for a full web interface
+- **Channel settings** — configure per-channel overrides for message direction, warnings, and more
+
+## What's Next?
+
+Now that you have a group, [link a channel](/getting-started/link-channel) to start syncing messages.

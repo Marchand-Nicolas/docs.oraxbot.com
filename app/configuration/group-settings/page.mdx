@@ -1,0 +1,72 @@
+# Group Settings
+
+import { Callout, Table } from 'nextra/components'
+
+Group settings apply to **all channels** in the interserv group across all connected servers. They are the default configuration that individual channels can override.
+
+## All Group Settings
+
+### Basic Configuration
+
+| Setting | Description | Default |
+|---|---|---|
+| **Custom Usernames Pattern** | Pattern for displayed usernames (e.g., `{username} [{serverName}]`) | `{username}` |
+| **Custom User Picture URL** | URL pattern for user avatars (e.g., `{userAvatarUrl}`) | User's Discord avatar |
+| **Reply Style** | How replies are formatted: Embed, Quote, Quote (no jump), Embed (no jump) | Embed |
+| **Allow @everyone/@here** | Whether @everyone and @here pings are relayed | Disabled |
+| **Sync Role Mentions** | Whether role mentions are mapped across servers by role name | Disabled |
+
+### Moderation & Security
+
+| Setting | Description | Default |
+|---|---|---|
+| **Moderators** | List of usernames who can use moderator commands | Members with Manage Messages |
+| **Word Blacklist** | List of words that will block a message from being sent | Empty |
+| **Message Filters** | Advanced rule-based filtering (keyword, media, author) | Empty |
+| **Log Messages** | Log interserv messages to a specific Discord channel | Disabled |
+| **Custom Rules** | Rules text shown by the `/rules` command | Empty |
+
+### Privacy & Synchronization
+
+| Setting | Description | Default |
+|---|---|---|
+| **User Warning Message** | Whether to show first-time warning to users | Enabled |
+| **Custom Warning Message** | Custom text for the warning message | Default Orax warning |
+| **Delete Sync** | Whether message deletions are synced | Enabled |
+| **Lock** | Whether the group is locked (non-admins can't send) | Unlocked |
+
+### Additional Settings
+
+| Setting | Description | Default |
+|---|---|---|
+| **Announcements** | Whether the group receives Orax announcements | Enabled |
+| **Interserv Helper** | Periodic info message with server list and stats | Enabled |
+| **Disable Sync** | Completely disable message synchronization | Enabled (sync active) |
+
+## How to Configure
+
+### Via Discord
+
+Use the `/manage-group` command in any linked channel to open the interactive settings panel with toggle buttons.
+
+### Via Dashboard
+
+Visit [oraxbot.com/dashboard](https://oraxbot.com/dashboard) → Select your server → Select the group → Configure settings in the organized panels.
+
+<Callout type="info">
+  The dashboard provides a more visual and comprehensive configuration experience, especially for complex settings like message filters and custom username patterns.
+</Callout>
+
+## Custom Username Variables
+
+Custom username patterns support dynamic variables:
+
+| Variable | Replaced with |
+|---|---|
+| `{username}` | The user's Discord username |
+| `{nickname}` | The user's server-specific nickname |
+| `{serverName}` | The name of the originating Discord server |
+| `{role}` | The user's highest role name |
+| `{userAvatarUrl}` | The user's Discord avatar URL (for picture pattern) |
+
+See [Custom Usernames](/configuration/custom-usernames) for detailed examples.

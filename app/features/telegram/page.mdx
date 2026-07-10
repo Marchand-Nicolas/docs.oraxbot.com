@@ -1,0 +1,67 @@
+# Telegram Bridge
+
+import { Callout } from 'nextra/components'
+
+Orax can bridge Discord channels with **Telegram groups**, allowing users on both platforms to communicate in the same interserv group.
+
+## How It Works
+
+Telegram groups can join interserv groups using a simple command. Once connected:
+
+1. Messages sent in the Telegram group are relayed to all linked Discord channels
+2. Messages sent in any linked Discord channel are relayed to the Telegram group
+3. The bot uses the Telegram Bot API to send and receive messages
+
+## Setting Up the Telegram Bridge
+
+### Prerequisites
+
+- A Telegram group where you are an administrator
+- The Orax Telegram bot added to your group
+- An existing interserv group join link
+
+### Joining an Interserv Group
+
+In your Telegram group, send:
+
+```
+/setup_interserv_group <join-link>
+```
+
+Replace `<join-link>` with the join link from your interserv group. The Telegram group will be connected to the same group as your Discord channels.
+
+<Callout type="info">
+  You can get the join link from:
+  - The `/create-interserv-group` command response in Discord
+  - The [Orax Dashboard](https://oraxbot.com/dashboard)
+  - The `/channel-infos` command in a linked Discord channel
+</Callout>
+
+## Message Formatting
+
+Due to differences between Discord and Telegram, some formatting is adapted:
+
+| Feature | Discord → Telegram | Telegram → Discord |
+|---|---|---|
+| **Text formatting** | Markdown converted to Telegram formatting | Telegram formatting converted to Discord markdown |
+| **Mentions** | Converted to plain text usernames | Converted to plain text usernames |
+| **Attachments** | Downloaded and sent as Telegram files | Downloaded and sent as Discord attachments |
+| **Embeds** | Converted to formatted text messages | N/A (Telegram doesn't have embeds) |
+| **Reactions** | Not synced to Telegram | Not synced to Discord |
+| **Threads** | Not applicable in Telegram | N/A |
+
+## Limitations
+
+- Telegram doesn't support Discord's embed format, so embeds are converted to plain text
+- Reactions and threads are **not** synced between Telegram and Discord
+- Sticker conversion between platforms may not always produce identical results
+- The Telegram bot must have appropriate permissions in the group
+- Telegram has its own rate limits that may affect message delivery speed
+
+## Managing the Telegram Connection
+
+The Telegram group appears as a linked channel in the interserv group, just like a Discord channel. You can:
+
+- View it in the `/channel-infos` command output
+- Manage it from the Orax Dashboard
+- Unlink it using the same commands as Discord channels

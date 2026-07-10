@@ -1,0 +1,94 @@
+# Message Filters
+
+import { Callout } from 'nextra/components'
+
+Message filters are an advanced rule-based system that gives you fine-grained control over which messages get relayed. You can create include (whitelist) or exclude (blacklist) rules based on keywords, media type, or author type.
+
+## Filter Types
+
+Each filter rule has a **type**, a **condition** (include or exclude), and **values**:
+
+### Filter Types
+
+| Type | Description | Values |
+|---|---|---|
+| **Keyword** | Filter based on text content in the message | Words or phrases to match |
+| **Media** | Filter based on media content in the message | Images, videos, attachments, links, embeds |
+| **Author** | Filter based on the type of author | Human, webhook, bot |
+
+### Conditions
+
+| Condition | Behavior |
+|---|---|
+| **Include** (whitelist) | Only messages matching the rule will be relayed |
+| **Exclude** (blacklist) | Messages matching the rule will be blocked |
+
+## How Filters Work
+
+1. When a message is sent, Orax evaluates all active filter rules
+2. **Exclude** rules are checked first — if a message matches any exclude rule, it's blocked
+3. **Include** rules are checked next — if any include rules exist, the message must match at least one to be relayed
+4. If no include rules exist, all non-excluded messages are relayed
+
+## Examples
+
+### Example 1: Block all bot messages
+
+| Type | Condition | Value |
+|---|---|---|
+| Author | Exclude | Bot |
+
+This prevents messages from bots (like other Discord bots) from being relayed.
+
+### Example 2: Only allow messages with images
+
+| Type | Condition | Value |
+|---|---|---|
+| Media | Include | Images |
+
+Only messages containing images will be relayed. Text-only messages will be blocked.
+
+### Example 3: Block messages with specific keywords
+
+| Type | Condition | Value |
+|---|---|---|
+| Keyword | Exclude | spam, scam, phishing |
+
+Messages containing any of these words will be blocked.
+
+### Example 4: Only allow text messages (no media)
+
+| Type | Condition | Value |
+|---|---|---|
+| Media | Exclude | Images, Videos, Attachments, Links, Embeds |
+
+Only plain text messages will be relayed.
+
+## Combining Rules
+
+You can create multiple filter rules. They are evaluated as follows:
+
+- Multiple **exclude** rules: A message is blocked if it matches ANY exclude rule
+- Multiple **include** rules: A message is relayed only if it matches at least ONE include rule
+- **Exclude** always takes priority over **include**
+
+<Callout type="warning">
+  If you set an include rule that's too restrictive, legitimate messages may be blocked. Test your filters carefully.
+</Callout>
+
+## How to Configure
+
+### Via Dashboard
+
+1. Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard)
+2. Select your server and group
+3. Under **Advanced Settings**, find the **Message Filtering** section
+4. Add, edit, or remove filter rules using the visual editor
+
+### Via Discord
+
+Use the `/manage-group` command and select the "Filters" option.
+
+<Callout type="info">
+  Message filters apply group-wide. They cannot be overridden per channel.
+</Callout>

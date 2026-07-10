@@ -1,0 +1,31 @@
+# Reactions
+
+import { Callout } from 'nextra/components'
+
+When a user adds a reaction to a message in a linked channel, Orax replicates that reaction on all mirrored copies of the message across every connected server.
+
+## How It Works
+
+1. A user adds a reaction (emoji) to a message in a linked channel
+2. Orax detects the reaction via Discord's `messageReactionAdd` event
+3. The bot looks up all mirrored copies of the message in the database
+4. The same reaction is added to each mirrored message via Discord's REST API
+
+## Supported Reactions
+
+- **Standard Unicode emojis** — ✅ Fully supported
+- **Custom Discord emojis** — ✅ Supported if the bot has access to the emoji in the target server
+
+<Callout type="warning">
+  If the bot doesn't have access to a custom emoji in a target server, the reaction will fail silently for that server. Standard Unicode emojis always work.
+</Callout>
+
+## Bidirectional Sync
+
+Reactions work **bidirectionally** — a reaction added on any mirrored copy of a message will be replicated to all other copies, including the original message.
+
+## Limitations
+
+- Reactions only work within the **30-day retention window** for message mappings
+- Discord has rate limits on adding reactions, so very rapid reaction additions may be throttled
+- Reaction removal is **not** currently synced — removing a reaction on one copy does not remove it on others

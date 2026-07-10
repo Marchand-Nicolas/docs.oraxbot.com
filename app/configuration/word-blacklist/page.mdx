@@ -1,0 +1,51 @@
+# Word Blacklist
+
+import { Callout } from 'nextra/components'
+
+The word blacklist is a simple filtering system that prevents messages containing specific words from being relayed to other servers.
+
+## How It Works
+
+1. When a message is sent in a linked channel, Orax checks the message content
+2. If the message contains any word from the blacklist, it is **blocked** (not relayed)
+3. The sender may receive a notification that their message was blocked (depending on settings)
+
+<Callout type="info">
+  The word blacklist is a simpler alternative to the [message filters](/configuration/message-filters) system. If you need more advanced filtering (by media type, author type, etc.), use message filters instead.
+</Callout>
+
+## Adding Words
+
+You can add any words or phrases to the blacklist. Matching is case-insensitive and checks for substrings (e.g., blacklisting "spam" will also block "spamming" and "spammer").
+
+## How to Configure
+
+### Via Dashboard
+
+1. Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard)
+2. Select your server and group
+3. Under **Moderation & Security**, find the **Word Blacklist** field
+4. Add words separated by commas
+5. Save the changes
+
+### Via Discord
+
+Use the `/manage-group` command and select the "Blacklist" option.
+
+## Example
+
+Blacklisted words: `spam, scam, phishing, nsfw`
+
+| Message | Result |
+|---|---|
+| "Hello everyone!" | ✅ Relayed |
+| "Check out this spam link" | ❌ Blocked (contains "spam") |
+| "This is a scam" | ❌ Blocked (contains "scam") |
+| "How are you?" | ✅ Relayed |
+
+## Notes
+
+- Word blacklist applies group-wide across all channels and servers
+- The blacklist works independently from message filters — both are checked
+- Blocked messages are not relayed to any server in the group
+- If a [log channel](/configuration/log-messages) is configured, blocked messages will be logged there

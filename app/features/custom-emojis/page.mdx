@@ -1,0 +1,48 @@
+# Custom Emojis
+
+import { Callout } from 'nextra/components'
+
+Orax includes a custom emoji system that lets users insert emojis by name using the `:!emoji_name:` syntax, even if the emoji isn't available in their current server.
+
+## How It Works
+
+1. A user types `:!emoji_name:` in a linked channel
+2. Orax scans the message for the `:!...:` pattern
+3. The bot searches for an emoji with that name across all servers it's in
+4. If found, the `:!emoji_name:` is replaced with the actual Discord emoji markup
+5. If the bot doesn't have access to an emoji with that name, it's converted to a markdown image link
+
+## Usage Examples
+
+| Input | Result |
+|---|---|
+| `:!pepe:` | Resolved to the actual Discord emoji (if accessible) |
+| `:!custom_emoji:` | Converted to a markdown image link (if not accessible) |
+| `Hello :!wave: world` | Hello [resolved emoji] world |
+
+<Callout type="tip">
+  The emoji search is **name-based** — you only need to know the name of the emoji, not its ID. The bot searches across all servers it's a member of.
+</Callout>
+
+## Emoji Search
+
+You can search for available emojis using the Orax website:
+
+- Visit [oraxbot.com/emojis](https://oraxbot.com/emojis)
+- Search by name to find exact and related matches
+- Use the `:!name:` syntax in your messages
+
+## How It Differs from Discord's Native Emojis
+
+| Feature | Discord Native | Orax Custom (`:!...:`) |
+|---|---|---|
+| Requires emoji in current server | ✅ Yes | ❌ No |
+| Works across servers | ❌ No | ✅ Yes |
+| Requires emoji ID | ✅ Yes (or picker) | ❌ No, just the name |
+| Animated emojis | ✅ Yes | ✅ Yes |
+
+## Limitations
+
+- The bot must be in at least one server that has the emoji
+- If multiple emojis share the same name, the first match is used
+- The `:!...:` syntax is processed before the message is relayed, so it works in all linked channels

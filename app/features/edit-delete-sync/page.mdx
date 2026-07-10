@@ -1,0 +1,47 @@
+# Edit & Delete Sync
+
+import { Callout } from 'nextra/components'
+
+When you edit or delete a message in a linked channel, Orax automatically propagates the change to all mirrored copies across every connected server.
+
+## Message Edits
+
+When a user edits their message in a linked channel:
+
+1. Orax detects the edit via Discord's `messageUpdate` event
+2. The bot looks up all mirrored copies of the message in the database
+3. Each mirrored message is updated via a webhook PATCH request
+4. The edit reflects the new content, including attachments and embeds
+
+<Callout type="info">
+  Edits work for up to **30 days** after the original message was sent, due to the data retention policy for message mappings.
+</Callout>
+
+## Message Deletions
+
+When a user deletes their message in a linked channel:
+
+1. Orax detects the deletion via Discord's `messageDelete` event
+2. The bot looks up all mirrored copies of the message in the database
+3. Each mirrored message is deleted via a webhook DELETE request
+4. The deletion is propagated to all connected servers
+
+### Disabling Delete Sync
+
+Delete sync can be disabled per group. This is useful if you want messages to persist even when the original is deleted.
+
+<Callout>
+  **To toggle delete sync:**
+  - Use the `/manage-group` command and toggle the "Delete sync" option
+  - Or use the [Orax Dashboard](https://oraxbot.com/dashboard) → Group Settings → Privacy & Synchronization
+</Callout>
+
+## What Happens to Replies?
+
+When a message with replies is edited, the reply formatting is preserved across all mirrored copies. The reply style (embed, quote, quote without jump button, or embed without jump button) is determined by the group or channel settings.
+
+## Limitations
+
+- Edits and deletions only work within the **30-day retention window**
+- If a webhook was deleted or the bot lost permissions in a channel, the edit/delete in that channel will silently fail
+- Bulk deletions (e.g., purging messages with a moderation bot) may not all be synced if they exceed rate limits

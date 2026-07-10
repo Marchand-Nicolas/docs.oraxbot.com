@@ -1,0 +1,36 @@
+# /unlink-channel
+
+Unlinks the current channel from all interserv groups it's connected to.
+
+## Usage
+
+```
+/unlink-channel
+```
+
+## Permissions
+
+- **Administrator** — Required to use this command
+
+## What It Does
+
+1. Removes the channel from all interserv groups it's linked to
+2. Deletes the Orax webhook from the channel
+3. Stops all message synchronization
+
+## Example
+
+```
+/unlink-channel
+```
+
+**Bot response:**
+> ✅ This channel has been unlinked from all interserv groups.
+> 
+> Message synchronization has been stopped.
+
+## Notes
+
+- This action **cannot** be undone — you'll need to re-link the channel with `/link-channel` if you want to sync again
+- The webhook created by Orax will be deleted from the channel
+- Any existing mirrored messages will remain in the channel (they won't be deleted)

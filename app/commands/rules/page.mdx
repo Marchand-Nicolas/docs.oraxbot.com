@@ -1,0 +1,46 @@
+# /rules
+
+Displays the custom rules for the interserv group linked to the current channel.
+
+## Usage
+
+```
+/rules
+```
+
+## Permissions
+
+- **Everyone** — Any server member can use this command
+
+## What It Shows
+
+If the group has custom rules configured, they are displayed in an embed. If no rules are set, a default message is shown.
+
+## Example
+
+```
+/rules
+```
+
+**Bot response (with rules):**
+> 📋 **Rules for My Awesome Group**
+> 
+> 1. Be respectful to all members
+> 2. No spam or advertising
+> 3. Keep conversations on-topic
+> 4. No NSFW content
+> 5. Follow Discord's Terms of Service
+
+**Bot response (no rules):**
+> ℹ️ No custom rules have been set for this interserv group.
+
+## Setting Custom Rules
+
+Group rules can be configured by moderators:
+
+- Use the [`/manage-group`](/commands/manage-group) command and select the "Rules" option
+- Or use the [Orax Dashboard](https://oraxbot.com/dashboard) → Group Settings → Custom Rules
+
+<Callout type="info">
+  Rules are group-wide — they apply to all channels in the interserv group across all servers.
+</Callout>

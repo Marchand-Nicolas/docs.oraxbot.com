@@ -1,0 +1,56 @@
+# /ban-user-from-interserv-group
+
+import { Callout } from 'nextra/components'
+
+Bans a user from the interserv group. The banned user's messages will no longer be relayed to other servers, and their messages in other servers won't appear in the current group's channels.
+
+## Usage
+
+```
+/ban-user-from-interserv-group
+```
+
+## Permissions
+
+- **Moderator** — The user must be a group moderator or have Manage Messages permission
+
+## What It Does
+
+1. Prompts you to provide either a **message link** or a **user ID**
+2. If a message link is provided, Orax looks up the original sender
+3. The user is added to the group's ban list
+4. Future messages from this user will be blocked in all linked channels
+5. If a moderation log channel is configured, the ban is logged with an inline ban button
+
+## Input Methods
+
+| Method | Description |
+|---|---|
+| **Message link** | Right-click a synced message → Copy Message Link → paste it |
+| **User ID** | The Discord user ID of the person to ban |
+
+## Example
+
+```
+/ban-user-from-interserv-group
+> Message link or User ID: https://discord.com/channels/123/456/789
+```
+
+**Bot response:**
+> ✅ User **JohnDoe** (ID: 123456789) has been banned from the interserv group.
+> 
+> Their messages will no longer be synced.
+
+## Tracking Banned Users
+
+Banned users are listed in the group's ban list, which can be viewed and managed from:
+- The [Orax Dashboard](https://oraxbot.com/dashboard) → Group Settings → Banned Users
+- The `/manage-group` command
+
+## Unbanning
+
+To remove a ban, use the [`/unban-user-from-interserv-group`](/commands/unban-user) command.
+
+<Callout type="info">
+  Banning is per-group — a user banned from one interserv group can still participate in other groups.
+</Callout>

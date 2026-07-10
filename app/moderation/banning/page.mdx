@@ -1,0 +1,56 @@
+# Banning Users
+
+import { Callout } from 'nextra/components'
+
+Banning a user from an interserv group prevents their messages from being relayed to other servers. The ban applies to the entire group across all connected servers.
+
+## How to Ban
+
+Use the `/ban-user-from-interserv-group` command. You can provide either:
+
+### Option 1: Message Link
+
+1. Right-click a synced message from the user you want to ban
+2. Select **Copy Message Link**
+3. Run the command and paste the link
+
+### Option 2: User ID
+
+1. Enable Developer Mode in Discord (Settings → Advanced → Developer Mode)
+2. Right-click the user → **Copy User ID**
+3. Run the command and paste the ID
+
+## What Happens When You Ban
+
+1. The user is added to the group's ban list in the database
+2. Their future messages will be **blocked** (not relayed to other servers)
+3. Messages from other servers sent by this user will **not appear** in the group's channels
+4. If a [log channel](/configuration/log-messages) is configured, the ban is logged
+
+<Callout type="info">
+  Banning does **not** kick the user from any Discord server. It only prevents their messages from being synced in the interserv group.
+</Callout>
+
+## Managing Bans
+
+### Viewing Banned Users
+
+- **Dashboard**: Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard) → Group Settings → Banned Users
+- **Discord**: Use `/manage-group` and navigate to the banned users section
+
+### Unbanning
+
+Use the `/unban-user-from-interserv-group` command with the user's Discord ID, or unban from the dashboard.
+
+## Ban via Log Channel
+
+If you have a [log channel](/configuration/log-messages) configured, blocked messages will appear in the log with an inline **ban button**. Clicking this button bans the user who sent the blocked message, providing a quick moderation workflow:
+
+1. User sends a message that gets blocked (by blacklist or filter)
+2. The blocked message appears in your log channel with a ban button
+3. A moderator clicks the ban button
+4. The user is banned from the group
+
+<Callout type="tip">
+  This is the fastest way to moderate — you can ban users directly from the log without typing any commands.
+</Callout>

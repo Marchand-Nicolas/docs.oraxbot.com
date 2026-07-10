@@ -1,0 +1,50 @@
+# /track
+
+import { Callout } from 'nextra/components'
+
+Traces a synced message back to its original author and server. This is useful for moderation — if you see a problematic message, you can find out who originally sent it and in which server.
+
+## Usage
+
+```
+/track
+```
+
+## Permissions
+
+- **Everyone** — Any server member can use this command
+
+## What It Does
+
+1. Prompts you to provide a message link to a synced message in the current channel
+2. Orax looks up the message in its database
+3. Returns information about the original message:
+   - **Original author** — Username and user ID
+   - **Original server** — Server name
+   - **Original channel** — Channel name
+   - **Original message** — Content preview
+
+## Example
+
+```
+/track
+> Message link: https://discord.com/channels/123/456/789
+```
+
+**Bot response:**
+> 🔍 **Message Trace**
+> 
+> **Original author:** JohnDoe (ID: 123456789)
+> **Original server:** Server Alpha
+> **Original channel:** #general
+> **Sent at:** 2024-01-15 14:30:22 UTC
+
+<Callout type="info">
+  Tracking only works for messages sent within the last **30 days** (the data retention window).
+</Callout>
+
+## Use Cases
+
+- **Moderation** — Identify who sent an inappropriate message
+- **Attribution** — Find the original author of a forwarded or relayed message
+- **Investigation** — Determine which server a message originated from

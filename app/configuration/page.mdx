@@ -1,0 +1,57 @@
+# Configuration Overview
+
+import { Cards, Callout } from 'nextra/components'
+
+Orax offers extensive configuration options to customize how your interserv groups work. Settings are split into **group-level** (apply to all channels) and **channel-level** (per-channel overrides).
+
+<Cards>
+  <Cards.Card title="Group Settings" href="/configuration/group-settings" />
+  <Cards.Card title="Channel Settings" href="/configuration/channel-settings" />
+  <Cards.Card title="Custom Usernames" href="/configuration/custom-usernames" />
+  <Cards.Card title="Message Filters" href="/configuration/message-filters" />
+  <Cards.Card title="Word Blacklist" href="/configuration/word-blacklist" />
+  <Cards.Card title="Moderators" href="/configuration/moderators" />
+  <Cards.Card title="Log Messages" href="/configuration/log-messages" />
+  <Cards.Card title="Custom Rules" href="/configuration/custom-rules" />
+</Cards>
+
+## Where to Configure
+
+Settings can be changed from two places:
+
+### 1. Discord Commands
+
+Use the `/manage-group` command in any linked channel for an interactive button-based settings panel.
+
+### 2. Orax Dashboard
+
+Visit [oraxbot.com/dashboard](https://oraxbot.com/dashboard) for a full web interface with all settings organized in a clean UI.
+
+<Callout type="tip">
+  The dashboard provides the most complete configuration experience, with visual editors for filters, username patterns, and more.
+</Callout>
+
+## Settings Hierarchy
+
+Settings follow a hierarchy where channel-level settings can override group-level defaults:
+
+```
+Channel Setting (highest priority)
+    ↓ falls back to
+Group Setting (default)
+    ↓ falls back to
+Orax Default
+```
+
+For example, if a group has "reply style" set to "Embed" but a specific channel overrides it to "Quote", that channel will use the Quote style while all other channels use Embed.
+
+## Server-Level Settings
+
+In addition to group and channel settings, each Discord server has server-level settings:
+
+| Setting | Description |
+|---|---|
+| **Language** | Server language (English, Spanish, French) — affects warning messages and help text |
+| **Public** | Whether the server is visible in the `/channel-infos` command for published groups |
+| **Public Name** | Display name for the server when shown publicly |
+| **Public Link** | Discord invite link shown for public servers |

@@ -1,0 +1,38 @@
+# /unban-user-from-interserv-group
+
+Removes a ban from a user, allowing them to participate in the interserv group again.
+
+## Usage
+
+```
+/unban-user-from-interserv-group
+```
+
+## Permissions
+
+- **Moderator** — The user must be a group moderator or have Manage Messages permission
+
+## What It Does
+
+1. Prompts you to enter the user ID of the banned user
+2. Removes the user from the group's ban list
+3. The user's messages will be synced again going forward
+
+## Example
+
+```
+/unban-user-from-interserv-group
+> User ID: 123456789
+```
+
+**Bot response:**
+> ✅ User (ID: 123456789) has been unbanned from the interserv group.
+> 
+> Their messages will now be synced again.
+
+## Notes
+
+- You need the user's Discord ID to unban them
+- Previously blocked messages are **not** retroactively synced
+- The user will not be notified that they've been unbanned
+- You can also unban users from the [Orax Dashboard](https://oraxbot.com/dashboard) → Group Settings → Banned Users

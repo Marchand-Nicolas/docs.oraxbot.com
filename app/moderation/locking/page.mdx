@@ -1,0 +1,59 @@
+# Locking Groups
+
+import { Callout } from 'nextra/components'
+
+Locking an interserv group temporarily prevents non-admin users from sending messages that would be relayed to other servers. This is useful during incidents, spam attacks, or when you need time to address moderation issues.
+
+## How to Lock
+
+Use the `/lock` command in any linked channel:
+
+```
+/lock
+```
+
+Only **moderators** and **administrators** can lock a group.
+
+## What Happens When Locked
+
+1. Non-admin users' messages in **all** linked channels are **blocked** (not relayed)
+2. A notification is sent to inform users that the group is locked
+3. Moderators and admins can still send messages normally
+4. Messages from other (unlocked) groups are unaffected
+
+<Callout type="warning">
+  Locking affects **all channels** in the group across **all servers**. A lock initiated from one server will prevent users in every connected server from sending messages.
+</Callout>
+
+## How to Unlock
+
+Use the `/unlock` command:
+
+```
+/unlock
+```
+
+This reverses the lock and allows all users to send messages again.
+
+## When to Use Locking
+
+| Scenario | Recommended? |
+|---|---|
+| **Spam attack** from a specific server | ✅ Lock while you ban the spammers |
+| **Coordinated raid** across multiple servers | ✅ Lock immediately |
+| **Moderation incident** requiring investigation | ✅ Lock to prevent further issues |
+| **Temporary maintenance** | ✅ Lock while you reconfigure settings |
+| **Single user misbehaving** | ❌ Just ban the individual user instead |
+
+## Lock vs. Disable Sync
+
+| Feature | Lock | Disable Sync |
+|---|---|---|
+| Blocks outgoing messages | ✅ | ✅ |
+| Blocks incoming messages | ❌ (incoming still works) | ✅ |
+| Easy to toggle | ✅ (`/lock` / `/unlock`) | Via settings only |
+| Reversible quickly | ✅ | ✅ |
+
+<Callout type="info">
+  Lock is the preferred tool for temporary moderation actions. Disable sync is for when you want to completely pause all message synchronization.
+</Callout>

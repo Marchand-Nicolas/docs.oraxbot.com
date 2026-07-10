@@ -1,0 +1,55 @@
+# Moderators
+
+import { Callout } from 'nextra/components'
+
+Moderators are users who can use moderation commands (`/lock`, `/unlock`, `/ban-user-from-interserv-group`, `/unban-user-from-interserv-group`) in the interserv group.
+
+## Default Behavior
+
+By default, any member with the **Manage Messages** permission in their Discord server is considered a moderator for the interserv group. This means they can use moderation commands without any additional configuration.
+
+## Custom Moderator List
+
+You can configure a specific list of usernames who are moderators, regardless of their Discord permissions. This is useful when you want to designate specific users as moderators for the interserv group without giving them server-level permissions.
+
+### How It Works
+
+- If a **custom moderator list** is set, only users on that list (and server administrators) can use moderation commands
+- If the list is **empty**, the default behavior applies (anyone with Manage Messages permission is a moderator)
+
+<Callout type="info">
+  Server administrators always have moderator access, regardless of the custom moderator list.
+</Callout>
+
+## How to Configure
+
+### Via Dashboard
+
+1. Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard)
+2. Select your server and group
+3. Under **Moderation & Security**, find the **Moderators** field
+4. Add usernames (one per line or comma-separated)
+5. Save the changes
+
+### Via Discord
+
+Use the `/manage-group` command and select the "Moderators" option.
+
+## Moderator Permissions
+
+Moderators can use the following commands:
+
+| Command | Action |
+|---|---|
+| `/lock` | Lock the group (prevent non-admins from sending) |
+| `/unlock` | Unlock the group |
+| `/ban-user-from-interserv-group` | Ban a user from the group |
+| `/unban-user-from-interserv-group` | Unban a user from the group |
+
+## Cross-Server Moderation
+
+Moderators are **group-wide** — a moderator designated in one server has moderation powers across all channels in the interserv group, including in other servers' channels.
+
+<Callout type="warning">
+  Be careful who you designate as a moderator, as they can ban users and lock the group for all connected servers, not just your server.
+</Callout>
