@@ -97,11 +97,14 @@
 }
 
 .orax-feature-card {
+  display: block;
   padding: 1.5rem;
   border-radius: 0.75rem;
   border: 1px solid var(--nextra-border);
-  background: var(--nextra-card);
+  background: var(--orax-card);
   transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .orax-feature-card:hover {
