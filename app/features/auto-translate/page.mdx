@@ -1,0 +1,79 @@
+# Auto Translate
+
+import { Callout } from 'nextra/components'
+
+Orax can automatically translate synced messages into the language of each channel. When enabled, every message relayed across your interserv group is translated on-the-fly, so every community reads messages in their preferred language — no manual effort required.
+
+<Callout type="warning">
+  Auto Translate is an **Orax Plus** feature. You need an active Orax Plus subscription (or an active Top.gg vote) to enable it. See [Orax Plus](/premium) for details.
+</Callout>
+
+## How It Works
+
+1. A user sends a message in a linked channel
+2. Orax relays the message to all other linked channels via webhooks
+3. For each destination channel, if Auto Translate is enabled, the bot detects the source language automatically and translates the text to the channel's target language
+4. Discord-specific syntax (mentions, custom emojis, URLs, and code blocks) is protected from translation and restored after the text is translated
+5. The translated message is sent to the destination channel
+
+<Callout type="info">
+  The source language is always auto-detected — there is no need to configure it.
+</Callout>
+
+## Configuration
+
+Auto Translate is configured at two levels:
+
+| Level | Setting | Description |
+|---|---|---|
+| **Group** | **Translation** | Master toggle — enables or disables auto translation for the entire group |
+| **Channel** | **Translation Language** | Target language for this specific channel (inherits from the group if not set) |
+
+### Enabling Auto Translate
+
+1. Open the [Orax Dashboard](https://oraxbot.com/dashboard)
+2. Select your server and group
+3. In the group settings, toggle **Translation** on
+4. If you don't have Orax Plus, you'll be prompted to vote on Top.gg or subscribe
+
+<Callout type="tip">
+  You can also toggle translation from Discord using the `/manage-group` command.
+</Callout>
+
+### Setting the Target Language
+
+Once translation is enabled at the group level, you can choose a target language for each channel individually:
+
+1. Open the [Orax Dashboard](https://oraxbot.com/dashboard)
+2. Select your server, group, and click on a linked channel
+3. Open the channel settings
+4. Under **Translation language**, select the desired language
+
+If no language is set for a channel, it inherits the group default.
+
+<Callout type="info">
+  The list of available languages includes English, Spanish, French, German, Portuguese, and many more.
+</Callout>
+
+## What Gets Protected
+
+To prevent breaking Discord formatting and functionality, the following elements are **not translated** and are restored after translation:
+
+| Element | Example | Behavior |
+|---|---|---|
+| **Mentions** | `@username`, `@role` | Preserved as-is |
+| **Custom emojis** | `<:emoji_name:123>` | Preserved as-is |
+| **URLs** | `https://example.com` | Preserved as-is |
+| **Code blocks** | `` `inline code` `` / ` ```code block``` ` | Preserved as-is |
+
+<Callout type="warning">
+  If your Orax Plus subscription expires or your Top.gg vote period ends, Auto Translate is automatically disabled for your group. Messages will continue to sync normally, but without translation.
+</Callout>
+
+## Limitations
+
+- Requires an **active Orax Plus** entitlement (via Stripe subscription or Top.gg vote)
+- The source language is always **auto-detected** — there is no option to manually set it
+- Translation quality may vary by language pair
+- Very long messages may take slightly longer to relay due to the translation step
+- Only message text is translated — attachments, embeds, and other content remain unchanged

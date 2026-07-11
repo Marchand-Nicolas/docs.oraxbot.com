@@ -6,5 +6,6 @@ export default {
   'threads': 'Threads',
   'stickers': 'Stickers',
   'polls': 'Polls',
-  'custom-emojis': 'Custom Emojis'
+  'custom-emojis': 'Custom Emojis',
+  'auto-translate': 'Auto Translate'
 }
