@@ -1,5 +1,6 @@
 export default {
   'getting-started': 'Getting Started',
+  'platforms': 'Platforms',
   'features': 'Features',
   'commands': 'Commands',
   'configuration': 'Configuration',
