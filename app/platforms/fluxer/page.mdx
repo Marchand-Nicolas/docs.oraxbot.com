@@ -1,0 +1,104 @@
+# Fluxer
+
+import { Callout, Steps } from 'nextra/components'
+
+Fluxer is a chat platform that Orax supports alongside Discord and Telegram. With Orax for Fluxer, you can link your Fluxer server channels to interserv groups and chat seamlessly with communities across all three platforms. Messages, attachments, and embeds are relayed in both directions using webhooks.
+
+[**Invite Orax for Fluxer →**](https://web.fluxer.app/oauth2/authorize?client_id=1527278943076352000&scope=bot&permissions=2251937790028864)
+
+## Getting Started
+
+<Steps>
+  ### Invite the bot
+
+  Add Orax to your Fluxer server using the invite link above. Make sure the bot has permission to view channels, send messages, manage webhooks, and attach files in the channels you want to link.
+
+  ### Create an interserv group
+
+  Run the `/create-group <name>` command in any Fluxer channel to create a new interserv group. A group is the hub that connects channels across servers and platforms.
+
+  ### Link a channel
+
+  Run the `/link <group_link>` command in the Fluxer channel you want to connect. You can find the group link on the [explore](https://oraxbot.com/explore) page.
+
+  ### Start chatting
+
+  Messages sent in the linked channel are now relayed to every other channel in the group — on Fluxer, Discord, and Telegram.
+</Steps>
+
+<Callout type="info">
+  Fluxer management is currently done via in-chat commands. Dashboard support is coming soon.
+</Callout>
+
+## Commands
+
+Orax supports the following commands directly inside Fluxer channels:
+
+| Command | Description |
+|---|---|
+| **`/link <group_link>`** | Link the current channel to an interserv group |
+| **`/link #channel <group_link>`** | Link a specific channel to a group |
+| **`/unlink`** | Unlink the current channel from its group |
+| **`/unlink #channel`** | Unlink a specific channel |
+| **`/create-group <name>`** | Create a new interserv group |
+| **`/help`** | Show the list of available commands and useful links |
+
+<Callout type="warning">
+  Linking, unlinking, and creating groups require the **Administrator** permission in the Fluxer server. Non-administrators can still send and receive messages in linked channels.
+</Callout>
+
+## How Message Sync Works
+
+When a user sends a message in a linked Fluxer channel, Orax detects it and relays it to all other channels in the same interserv group:
+
+1. **Detection** — Orax listens for new messages and confirms the channel is linked
+2. **Filtering** — The message is checked against word blacklists, message filters, and ban lists
+3. **Transformation** — Mentions are processed, attachments and embeds are collected
+4. **Relay** — The message is delivered to every other linked channel via webhooks
+
+Messages relayed **into** Fluxer appear under the original sender's username and avatar, created through a webhook named **"Orax - InterServ"** in each linked channel.
+
+<Callout type="warning">
+  Do not delete or modify the "Orax - InterServ" webhook in your channel. If the webhook is removed, message sync will stop working until Orax recreates it.
+</Callout>
+
+### Sender Identification
+
+To make it easy to tell where a message came from, Orax appends the source server's name to the username. A message sent from a Fluxer server named "Gaming Hub" by user "alex" will appear as:
+
+```
+alex [Gaming Hub]
+```
+
+## What Gets Synced
+
+| Content Type | Details |
+|---|---|
+| **Text** | All text content including markdown, code blocks, and mentions |
+| **Attachments** | Images, videos, and files (up to 10 per message) |
+| **Embeds** | Rich embeds and link previews (up to 10 per message) |
+| **Mentions** | User mentions are preserved and annotated with the username |
+
+<Callout type="info">
+  Content limits: usernames are truncated to 80 characters and message text to 2000 characters, consistent with Fluxer's API limits.
+</Callout>
+
+## Cross-Platform Bridging
+
+Fluxer channels can be linked to the same interserv group as Discord and Telegram channels. This means a Fluxer server, a Discord server, and a Telegram group can all share a single conversation, with messages flowing bidirectionally across every platform.
+
+```
+Fluxer server  ⟷  Interserv Group  ⟷  Discord server
+                        ⟷
+                   Telegram group
+```
+
+Mentions from Discord are reprocessed and cleaned up before being relayed into Fluxer, so they display correctly.
+
+## Auto Translate
+
+If [Auto Translate](/features/auto-translate) is enabled for the group, messages relayed into Fluxer channels are automatically translated into the channel's target language — just like on Discord.
+
+<Callout type="info">
+  Auto Translate requires an active **Orax Plus** subscription. See [Orax Plus](/premium) for details.
+</Callout>
