@@ -13,39 +13,36 @@ Opens an interactive button-based settings panel for managing the interserv grou
 ## Permissions
 
 - **Manage Guild** — The user must have Manage Server permission (or be a group moderator)
+- The command must be run in the server that **owns** the group
 
 ## What It Does
 
-Displays an interactive panel with buttons to toggle and configure various group settings:
+Displays an interactive panel with toggle buttons for the most common group settings. Each button flips a setting on or off and refreshes the panel.
 
-| Setting | Description |
-|---|---|
-| **Custom Usernames** | Toggle and configure custom username patterns |
-| **Reply Style** | Change how replies are displayed (embed, quote, etc.) |
-| **@everyone** | Toggle whether @everyone and @here pings are allowed |
-| **Role Mention Sync** | Toggle syncing role mentions across servers |
-| **Delete Sync** | Toggle whether message deletions are synced |
-| **User Warning** | Toggle the first-time user warning message |
-| **Word Blacklist** | Configure blocked words |
-| **Message Filters** | Configure advanced filter rules |
-| **Moderators** | Manage the list of group moderators |
-| **Log Messages** | Configure a log channel for interserv messages |
-| **Custom Rules** | Set custom rules text for the `/rules` command |
-| **Announcements** | Toggle whether the group receives announcements |
+| Toggle | Default | Description |
+|---|---|---|
+| **Lock group** / Unlock group | Unlocked | Blocks non-admin members from sending messages and deletes disallowed messages |
+| **Disable sync** / Enable sync | Sync active | Pauses message relay across the group without deleting messages |
+| **Disable delete sync** / Enable delete sync | Delete sync on | Stops mirrored message deletions from propagating to linked channels |
+| **Enable announcements** / Disable announcements | Enabled | Controls whether Orax announcement messages are sent to the group |
+| **Allow everyone** / Disallow everyone | Disabled | Lets `@everyone` and `@here` pings be relayed more freely inside the group |
+| **Sync mentions** / Unsync mentions | Disabled | Tries to keep role mentions aligned across connected servers |
+| **Disable warning** / Enable warning | Warning on | Turns the first-time interserv warning message on or off |
 
 <Callout type="tip">
-  All of these settings can also be configured from the [Orax Dashboard](https://oraxbot.com/dashboard) for a more visual experience.
+  All of these settings can also be configured from the [Orax Dashboard](https://oraxbot.com/dashboard), along with additional options (custom usernames, reply style, word blacklist, message filters, moderators, log channel, custom rules, translation) that are not exposed in the in-Discord panel.
 </Callout>
 
 ## How to Use
 
-1. Run `/manage-group` in a linked channel
-2. The bot responds with a panel of buttons
-3. Click a button to toggle or configure that setting
-4. Some settings may require additional input via a modal or follow-up prompt
+1. Run `/manage-group` in a channel linked to a group **owned by this server**
+2. The bot responds (privately, only visible to you) with a panel of toggle buttons
+3. Click a button to flip that setting — the panel updates immediately
+4. The new value applies to **all channels** in the group across every connected server
 
 ## Notes
 
-- Settings changes apply to **all** channels in the group across all servers
-- Per-channel overrides can be set from the dashboard
+- Only the server that **owns** the group can manage it. Run the command from a channel in the owner server.
+- Settings apply to **all channels** in the group across all servers
+- Per-channel overrides (such as translation language) can still be set from the dashboard
 - See the [Configuration](/configuration) section for detailed explanations of each setting

@@ -56,6 +56,19 @@ Orax creates a webhook in each linked channel. This webhook is used to post mess
 
 Message mapping data (used for sync) is retained for **30 days**. After that, old mappings are automatically cleaned up. This means you can edit, delete, react to, or thread on a message for up to 30 days after it was sent, and the action will be synced.
 
+## Long Messages
+
+Discord limits each message to 2000 characters. When Orax relays a message that's longer than that, it splits the content so nothing is lost:
+
+- The first **2000 characters** are sent as the message
+- The remaining text (up to ~4000 more characters) is attached to the same message in a quote-style block
+
+So synced messages on Discord can hold up to roughly **6000 characters** of text total.
+
+<Callout type="info">
+  On Fluxer, message text is always truncated to 2000 characters.
+</Callout>
+
 ## Performance
 
 Orax uses **automatic sharding** via Discord.js `ShardingManager` to handle large numbers of servers efficiently. The shard count is automatically determined based on the number of guilds the bot is in.
