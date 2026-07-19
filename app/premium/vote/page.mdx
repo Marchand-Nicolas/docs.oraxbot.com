@@ -1,25 +1,29 @@
 # Vote for Orax Plus
 
-import { Steps, Callout } from 'nextra/components'
+import { Steps, Callout, Tabs } from 'nextra/components'
 
-You can get Orax Plus for free by voting for the bot on Top.gg. Each vote grants approximately one week of Orax Plus.
+You can get Orax Plus for free by voting for the bot on your platform's listing site. Each vote grants approximately **one week** of Orax Plus, and you can vote again to extend it.
 
-<Callout type="warning">
-  Top.gg voting is **Discord-only**. Fluxer servers cannot unlock Orax Plus via
-  voting — use a [monthly or lifetime subscription](/premium) instead.
-</Callout>
+The vote provider depends on which platform your server lives on:
 
-## How to Vote
+- **Discord servers** vote on [Top.gg](https://top.gg/bot/812298057470967858/vote) — the vote is verified automatically via a webhook.
+- **Fluxer servers** vote on [Fluxerlist](https://fluxerlist.com/bots/orax) — since Fluxerlist has no webhook, Orax Plus is granted on a trust basis shortly after you open the vote page.
+
+<Tabs items={['Discord (Top.gg)', 'Fluxer (Fluxerlist)']}>
+
+<Tabs.Tab>
+
+## How to Vote on Top.gg
 
 <Steps>
 
 ### Go to the Dashboard
 
-Open the [Orax Dashboard](https://oraxbot.com/dashboard) and select the server you want to activate Orax Plus for.
+Open the [Orax Dashboard](https://oraxbot.com/dashboard/discord) and select the Discord server you want to activate Orax Plus for.
 
-### Click "Vote for Orax Plus"
+### Click "Vote on Top.gg"
 
-In the Orax Plus panel, click the **"Vote for Orax Plus"** button. This creates a vote intent linking your vote to the selected server.
+In the Orax Plus panel, click the **"Vote on Top.gg"** button. This creates a vote intent linking your vote to the selected server.
 
 ### Vote on Top.gg
 
@@ -32,41 +36,92 @@ Once Top.gg sends the vote webhook, Orax Plus is activated for your server autom
 </Steps>
 
 <Callout type="info">
-  If you've voted recently, clicking "Vote for Orax Plus" may activate Orax Plus immediately without redirecting you to Top.gg again.
+  If you've voted recently, clicking "Vote on Top.gg" may activate Orax Plus immediately without redirecting you to Top.gg again.
 </Callout>
 
-## How It Works
+### How It Works
 
-1. You click "Vote for Orax Plus" in the dashboard for a specific server
+1. You click "Vote on Top.gg" in the dashboard for a specific server
 2. Orax creates a **vote intent** linking your user ID to the selected guild
 3. You're redirected to Top.gg to cast your vote
 4. Top.gg sends a webhook to Orax's server with your vote details
 5. The webhook matches your vote to the vote intent
 6. Orax Plus is activated for the selected server for approximately **one week**
 
-## Vote Cooldown
+### Vote Cooldown
 
 - You can vote on Top.gg **once every 12 hours**
 - Each vote grants ~1 week of Orax Plus
 - If you vote regularly, you can maintain Orax Plus indefinitely
 
+</Tabs.Tab>
+
+<Tabs.Tab>
+
+## How to Vote on Fluxerlist
+
+<Steps>
+
+### Go to the Dashboard
+
+Open the [Orax Dashboard](https://oraxbot.com/dashboard/fluxer) and select the Fluxer server you want to activate Orax Plus for.
+
+### Click "Vote on Fluxerlist"
+
+In the Orax Plus panel, click the **"Vote on Fluxerlist"** button. The Fluxerlist vote page opens in a new tab.
+
+### Cast your vote
+
+Log in on [fluxerlist.com](https://fluxerlist.com/bots/orax) if needed and cast your vote for Orax.
+
+### Orax Plus activates after a short wait
+
+Back on the dashboard, a **"Retrieving your Vote on Fluxerlist vote…"** overlay appears for about 20 seconds while you complete the vote. Once the wait ends, Orax Plus is granted to your server for approximately **one week**.
+
+</Steps>
+
+<Callout type="warning">
+  Fluxerlist does not send a vote webhook, so Orax cannot verify that a vote
+  was actually cast. Orax Plus is granted on a trust basis after the wait —
+  please vote honestly so the listing stays useful for everyone.
+</Callout>
+
+### How It Works
+
+1. You click "Vote on Fluxerlist" in the dashboard for a specific server
+2. The [Fluxerlist vote page](https://fluxerlist.com/bots/orax) opens in a new tab
+3. The dashboard shows a "Retrieving vote…" overlay for ~20 seconds
+4. Once the wait ends, Orax requests Orax Plus for the selected server
+5. Orax Plus is activated for approximately **one week**
+
+### Vote Cooldown
+
+- You can vote on Fluxerlist **once every 12 hours**
+- Each vote grants ~1 week of Orax Plus
+- If you vote regularly, you can maintain Orax Plus indefinitely
+
+</Tabs.Tab>
+
+</Tabs>
+
 <Callout type="tip">
-  Always start the voting process from the Orax Dashboard for a specific server. This ensures your vote is automatically linked to the correct server.
+  Always start the voting process from the Orax Dashboard for a specific server. This ensures your vote is linked to the correct server.
 </Callout>
 
 ## Troubleshooting
 
 | Issue | Solution |
 |---|---|
-| Orax Plus didn't activate | Wait a few minutes — the webhook may take time. Make sure you completed the vote on Top.gg |
-| Wrong server got Orax Plus | Vote intents are per-server. Start a new vote from the correct server's dashboard |
+| Orax Plus didn't activate | Wait a few moments — webhook (Top.gg) or the 20-second retrieval (Fluxerlist) may still be processing. Make sure you completed the vote on the listing site |
+| Wrong server got Orax Plus | Votes are applied per-server. Start a new vote from the correct server's dashboard |
 | Orax Plus expired too early | Votes last ~1 week. Vote again to reactivate |
-| Vote page didn't open | Allow pop-ups for oraxbot.com, or use the [direct vote link](https://top.gg/bot/812298057470967858/vote) and then click "Vote for Orax Plus" in the dashboard |
+| Vote page didn't open | Allow pop-ups for oraxbot.com, or use the direct vote link below and then click the vote button in the dashboard |
 
-## Top.gg Vote Link
+## Vote Links
 
-**[Vote for Orax on Top.gg](https://top.gg/bot/812298057470967858/vote)**
+- **Discord (Top.gg):** [Vote for Orax on Top.gg](https://top.gg/bot/812298057470967858/vote)
+- **Fluxer (Fluxerlist):** [Vote for Orax on Fluxerlist](https://fluxerlist.com/bots/orax)
 
 <Callout>
-  Voting is completely free and supports the bot's visibility on Top.gg. It's a win-win — you get Orax Plus and help more people discover Orax!
+  Voting is completely free and supports the bot's visibility on both listing sites. It's a win-win — you get Orax Plus and help more people discover Orax!
 </Callout>

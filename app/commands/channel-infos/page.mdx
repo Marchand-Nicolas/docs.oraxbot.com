@@ -2,13 +2,17 @@
 
 import { Callout } from 'nextra/components'
 
-Displays information about the interserv group linked to the current channel, including a list of all connected servers.
+Displays information about the interserv group linked to the current channel, including a paginated list of every connected channel across all platforms.
 
 ## Usage
 
 ```
-/channel-infos
+/channel-infos [page]
 ```
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `page` | Integer | No | Page number when the group has many linked channels |
 
 ## Permissions
 
@@ -16,10 +20,20 @@ Displays information about the interserv group linked to the current channel, in
 
 ## What It Shows
 
-- **Group name** — The name of the interserv group
-- **Connected servers** — A list of all servers with channels linked to this group
-- **Channel count** — The total number of linked channels
-- **Group owner** — The server that created the group
+- **Group name** — The name of the interserv group the channel is linked to
+- **Channel count** — The total number of channels linked to the group
+- **Connected channels** — A paginated list of every linked channel with:
+  - The channel name
+  - The server name (or public name, if published)
+  - The server's member count
+  - A Discord invite link, when the server is published
+- **Join / Edit links** — Visible only to server administrators
+
+<Callout type="info">
+  On Discord, results are shown as an embed with up to 23 channels per page. If
+  the group has more channels, the response tells you the next page number to
+  use.
+</Callout>
 
 ## Example
 
@@ -28,19 +42,37 @@ Displays information about the interserv group linked to the current channel, in
 ```
 
 **Bot response:**
-> 📋 **Interserv Group: My Awesome Group**
-> 
-> **Owner:** Server Alpha
-> **Connected servers:** 5
-> **Linked channels:** 7
-> 
-> **Servers:**
-> 1. Server Alpha
-> 2. Server Beta
-> 3. Server Gamma
-> 4. Server Delta
-> 5. Server Epsilon
+
+> __general__ informations
+>
+> **Linked to the "My Awesome Group" Interserver, which is active on:** 5 channels
+>
+> **general - Server Alpha (1 240 members)**
+> [Join](https://discord.gg/abcd123)
+>
+> **general - Server Beta (832 members)**
+> ❌ Private server
+>
+> **general - Server Gamma (45 members)**
+> [Join](https://discord.gg/efgh456)
+
+## Administrators
+
+If you have the **Manage Server** permission, the response also includes buttons to:
+
+- **Join group** — Open the `oraxbot.com/join/<link>` page to add another channel
+- **Edit group** — Open the [dashboard](https://oraxbot.com/dashboard) for the current server
+
+## On Fluxer
+
+The same command is available as a text command in any linked Fluxer channel:
+
+```
+/channel-infos [page]
+```
+
+Aliases `/channel-info`, `/channel_infos`, and `/channel_info` are also accepted. The response is plain text (no embed) and lists every connected channel across all platforms, including Discord and Telegram channels when applicable.
 
 <Callout type="info">
-  If the group has published servers, they may be visible with direct Discord invite links in the response.
+  The **Join group** link is only shown to Fluxer server administrators.
 </Callout>
