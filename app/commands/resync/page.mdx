@@ -1,0 +1,67 @@
+# /resync
+
+import { Callout } from "nextra/components";
+
+Re-syncs the last **30 messages** in the current channel if they were not already synchronized across the interserv group. This is especially useful for backfilling a channel that was recently linked to a group.
+
+<Callout type="warning">
+  `/resync` is an **[Orax Plus](/premium)** feature. Without an active
+  entitlement, the command will surface the upgrade options (subscription,
+  lifetime, or free voting) instead of running the sync.
+</Callout>
+
+## Usage
+
+```
+/resync
+```
+
+## Permissions
+
+- **Administrator** — The user must have the Administrator permission in the server
+
+## What It Does
+
+1. Verifies the channel is linked to an interserv group
+2. Fetches the last **30 messages** sent in the channel
+3. For each message that Orax has not yet fully synchronized, re-triggers the relay pipeline
+4. Reports a summary of what was synced, skipped, or already up to date
+
+A message counts as **fully synchronized** only when it has been relayed to _every_ channel currently in the group. This means `/resync` only delivers messages to channels that are missing them — channels that already received a message are not sent duplicates.
+
+## Example
+
+```
+/resync
+```
+
+**Bot response:**
+
+> ✅ Synced 8 message(s). Already synced: 17. Skipped: 5. Checked: 30.
+
+The numbers break down as:
+
+| Stat               | Meaning                                                                   |
+| ------------------ | ------------------------------------------------------------------------- |
+| **Synced**         | Messages that were missing and have now been re-relayed                   |
+| **Already synced** | Messages that were already delivered to every channel in the group        |
+| **Skipped**        | Messages intentionally skipped (e.g. bot commands or unsupported content) |
+| **Checked**        | Total messages inspected (the last 30 in the channel)                     |
+
+## Use Cases
+
+- **Newly-linked channels** — Backfill recent history so a freshly linked channel sees the conversation context from other servers
+- **Dropped messages** — Recover messages that failed to relay the first time (e.g. due to a temporary webhook or permissions issue)
+- **Post-incident recovery** — Quickly catch up a group after an outage or configuration fix
+
+<Callout type="tip">
+  If messages aren't syncing as expected, run
+  [`/debug-channel`](/commands/debug-channel) first to verify the webhook and
+  bot permissions are healthy, then use `/resync` to fill in the gaps.
+</Callout>
+
+## Notes
+
+- Only the **last 30 messages** are inspected — older history is not re-synced
+- The origin channel is never re-relayed to itself
+- Works on both **Discord** and **Fluxer** servers
