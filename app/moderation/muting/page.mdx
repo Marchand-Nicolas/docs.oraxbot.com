@@ -1,0 +1,56 @@
+# Muting Users
+
+import { Callout } from 'nextra/components'
+
+Muting a user in an interserv group prevents their messages from being relayed to other servers. The mute applies to the entire group across all connected servers.
+
+## How to Mute
+
+Use the `/mute-user-from-interserv-group` command. You can provide either:
+
+### Option 1: Message Link
+
+1. Right-click a synced message from the user you want to mute
+2. Select **Copy Message Link**
+3. Run the command and paste the link
+
+### Option 2: User ID
+
+1. Enable Developer Mode in Discord (Settings → Advanced → Developer Mode)
+2. Right-click the user → **Copy User ID**
+3. Run the command and paste the ID
+
+## What Happens When You Mute
+
+1. The user is added to the group's mute list in the database
+2. Their future messages will be **blocked** (not relayed to other servers)
+3. Messages from other servers sent by this user will **not appear** in the group's channels
+4. If a [log channel](/configuration/log-messages) is configured, the mute is logged
+
+<Callout type="info">
+  Muting does **not** kick the user from any Discord server. It only prevents their messages from being synced in the interserv group.
+</Callout>
+
+## Managing Mutes
+
+### Viewing Muted Users
+
+- **Dashboard**: Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard) → Group Settings → Muted Users
+- **Discord**: Use `/manage-group` and navigate to the muted users section
+
+### Unmuting
+
+Use the `/unmute-user-from-interserv-group` command with the user's Discord ID, or unmute from the dashboard.
+
+## Mute via Log Channel
+
+If you have a [log channel](/configuration/log-messages) configured, blocked messages will appear in the log with an inline **mute button**. Clicking this button mutes the user who sent the blocked message, providing a quick moderation workflow:
+
+1. User sends a message that gets blocked (by blacklist or filter)
+2. The blocked message appears in your log channel with a mute button
+3. A moderator clicks the mute button
+4. The user is muted in the group
+
+<Callout type="tip">
+  This is the fastest way to moderate — you can mute users directly from the log without typing any commands.
+</Callout>

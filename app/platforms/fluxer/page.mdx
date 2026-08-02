@@ -60,7 +60,7 @@ Orax supports the following commands directly inside Fluxer channels:
 When a user sends a message in a linked Fluxer channel, Orax detects it and relays it to all other channels in the same interserv group:
 
 1. **Detection** — Orax listens for new messages and confirms the channel is linked
-2. **Filtering** — The message is checked against word blacklists, message filters, and ban lists
+2. **Filtering** — The message is checked against word blacklists, message filters, and mute lists
 3. **Transformation** — Mentions are processed, attachments and embeds are collected
 4. **Relay** — The message is delivered to every other linked channel via webhooks
 

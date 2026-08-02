@@ -9,8 +9,8 @@ export default {
   'lock': 'Lock',
   'unlock': 'Unlock',
   'manage-group': 'Manage Group',
-  'ban-user': 'Ban User',
-  'unban-user': 'Unban User',
+  'mute-user': 'Mute User',
+  'unmute-user': 'Unmute User',
   'track': 'Track',
   'rules': 'Rules'
 }

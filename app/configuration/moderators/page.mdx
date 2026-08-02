@@ -2,7 +2,7 @@
 
 import { Callout } from 'nextra/components'
 
-Moderators are users who can use moderation commands (`/lock`, `/unlock`, `/ban-user-from-interserv-group`, `/unban-user-from-interserv-group`) in the interserv group.
+Moderators are users who can use moderation commands (`/lock`, `/unlock`, `/mute-user-from-interserv-group`, `/unmute-user-from-interserv-group`) in the interserv group.
 
 ## Default Behavior
 
@@ -43,13 +43,13 @@ Moderators can use the following commands:
 |---|---|
 | `/lock` | Lock the group (prevent non-admins from sending) |
 | `/unlock` | Unlock the group |
-| `/ban-user-from-interserv-group` | Ban a user from the group |
-| `/unban-user-from-interserv-group` | Unban a user from the group |
+| `/mute-user-from-interserv-group` | Mute a user in the group |
+| `/unmute-user-from-interserv-group` | Unmute a user in the group |
 
 ## Cross-Server Moderation
 
 Moderators are **group-wide** — a moderator designated in one server has moderation powers across all channels in the interserv group, including in other servers' channels.
 
 <Callout type="warning">
-  Be careful who you designate as a moderator, as they can ban users and lock the group for all connected servers, not just your server.
+  Be careful who you designate as a moderator, as they can mute users and lock the group for all connected servers, not just your server.
 </Callout>

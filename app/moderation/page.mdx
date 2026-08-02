@@ -5,7 +5,7 @@ import { Cards, Callout } from 'nextra/components'
 Orax provides several moderation tools to keep your interserv groups safe and well-managed.
 
 <Cards>
-  <Cards.Card title="Banning Users" href="/moderation/banning" />
+  <Cards.Card title="Muting Users" href="/moderation/muting" />
   <Cards.Card title="Locking Groups" href="/moderation/locking" />
 </Cards>
 
@@ -13,11 +13,11 @@ Orax provides several moderation tools to keep your interserv groups safe and we
 
 | Tool | Description |
 |---|---|
-| **User Bans** | Ban individual users from the interserv group |
+| **User Mutes** | Mute individual users from the interserv group |
 | **Group Lock** | Temporarily prevent all non-admins from sending messages |
 | **Word Blacklist** | Block messages containing specific words |
 | **Message Filters** | Advanced rule-based message filtering |
-| **Log Channel** | Log blocked messages with inline ban buttons |
+| **Log Channel** | Log blocked messages with inline mute buttons |
 | **Moderators** | Designate specific users as group moderators |
 | **Track** | Trace any synced message to its original author |
 
@@ -39,10 +39,10 @@ See [Moderators configuration](/configuration/moderators) for details on setting
 
 Since interserv groups span multiple servers, moderation is a shared responsibility:
 
-- A moderator in **any** server can ban users for the **entire** group
+- A moderator in **any** server can mute users for the **entire** group
 - A lock affects **all** channels across **all** servers
 - Each server can independently configure its own [log channel](/configuration/log-messages)
-- Banned users are banned from the group, not from individual Discord servers
+- Muted users are muted in the group, not from individual Discord servers
 
 <Callout type="warning">
   Only designate moderators you trust, as they have the power to affect all servers in the group.

@@ -8,7 +8,7 @@ Message synchronization is Orax's core feature. When a user sends a message in a
 
 1. **Message Detection** — Orax listens for new messages in all linked channels via Discord's `messageCreate` event
 2. **Validation** — The bot checks if the message comes from a linked channel and isn't from another bot webhook (to prevent loops)
-3. **Filtering** — The message is checked against word blacklists, message filters, and ban lists
+3. **Filtering** — The message is checked against word blacklists, message filters, and mute lists
 4. **Transformation** — The message content is processed:
    - Custom username and avatar patterns are applied
    - Mentions are sanitized and mapped across servers

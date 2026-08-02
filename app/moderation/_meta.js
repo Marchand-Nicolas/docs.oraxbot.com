@@ -1,5 +1,5 @@
 export default {
   'index': 'Overview',
-  'banning': 'Banning Users',
+  'muting': 'Muting Users',
   'locking': 'Locking Groups'
 }

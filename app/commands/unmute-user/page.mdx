@@ -1,0 +1,38 @@
+# /unmute-user-from-interserv-group
+
+Removes a mute from a user, allowing them to participate in the interserv group again.
+
+## Usage
+
+```
+/unmute-user-from-interserv-group
+```
+
+## Permissions
+
+- **Moderator** — The user must be a group moderator or have Manage Messages permission
+
+## What It Does
+
+1. Prompts you to enter the user ID of the muted user
+2. Removes the user from the group's mute list
+3. The user's messages will be synced again going forward
+
+## Example
+
+```
+/unmute-user-from-interserv-group
+> User ID: 123456789
+```
+
+**Bot response:**
+> ✅ User (ID: 123456789) has been unmuted in the interserv group.
+>
+> Their messages will now be synced again.
+
+## Notes
+
+- You need the user's Discord ID to unmute them
+- Previously blocked messages are **not** retroactively synced
+- The user will not be notified that they've been unmuted
+- You can also unmute users from the [Orax Dashboard](https://oraxbot.com/dashboard) → Group Settings → Muted Users
