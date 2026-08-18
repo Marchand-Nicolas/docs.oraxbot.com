@@ -112,6 +112,26 @@ Fluxer server  ⟷  Interserv Group  ⟷  Discord server
 
 Mentions from Discord are reprocessed and cleaned up before being relayed into Fluxer, so they display correctly.
 
+## Voice Channels
+
+Fluxer **voice channels** can be linked to interserv groups — either with `/link <group_link>` in the voice channel, or by picking the voice channel from the dashboard. Linked voice channels get:
+
+- **Chat sync** — the voice channel's text chat syncs like any other linked channel
+- **Voice bridge** — live audio is relayed between linked voice channels, including **Discord ↔ Fluxer** bridging. Fluxer voice runs on LiveKit, which gives full two-way audio with linked Discord voice channels
+
+<Callout type="warning">
+  Fluxer voice channels using the **legacy UDP protocol** are send-only: Orax
+  can relay audio *into* them, but audio from Fluxer participants is not
+  captured.
+</Callout>
+
+<Callout type="info">
+  Linking a voice channel requires **Orax Plus**. On Fluxer, you can unlock it
+  by [voting on Fluxerlist](/premium/vote) (free) or via Stripe. See
+  [Voice Channels](/features/voice-channels) for the full feature rundown and
+  limits.
+</Callout>
+
 ## Auto Translate
 
 If [Auto Translate](/features/auto-translate) is enabled for the group, messages relayed into Fluxer channels are automatically translated into the channel's target language — just like on Discord.

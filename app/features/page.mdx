@@ -12,6 +12,7 @@ Orax provides a comprehensive set of features for cross-server communication on 
   <Cards.Card title="Stickers" href="/features/stickers" />
   <Cards.Card title="Polls" href="/features/polls" />
   <Cards.Card title="Custom Emojis" href="/features/custom-emojis" />
+  <Cards.Card title="Voice Channels" href="/features/voice-channels" />
   <Cards.Card title="Auto Translate" href="/features/auto-translate" />
 </Cards>
 
@@ -36,7 +37,10 @@ All sticker formats are supported: PNG, APNG, GIF, and Lottie. Lottie and APNG s
 When a Discord poll expires, Orax aggregates the vote counts from all mirrored copies of the poll across all servers and posts the combined results.
 
 ### Custom Emojis
-Type `:!emoji_name:` to insert an emoji by name. The bot resolves it to actual Discord emoji markup if accessible, or converts it to a markdown image link otherwise.
+Type `:!emoji_name:` to insert an emoji by name on Discord or Fluxer. The bot resolves it to actual emoji markup if accessible, or converts it to a linked image otherwise. Emojis are also translated across platforms when messages are relayed.
+
+### Voice Channels
+Link voice (and stage) channels to interserv groups. Their text chat syncs like any channel, and live audio is bridged between linked voice channels — across Discord servers and between Discord and Fluxer. Requires **Orax Plus**.
 
 ### Auto Translate
 Automatically translate synced messages into the target language of each channel with auto source-language detection. Requires **Orax Plus**.

@@ -1,0 +1,89 @@
+# Voice Channels
+
+import { Callout } from 'nextra/components'
+
+Orax can link **voice channels** to interserv groups — not just text channels. Linked voice channels get two superpowers:
+
+1. **Chat sync** — the voice channel's text chat is synchronized like any other linked channel
+2. **Voice bridge** — live audio is relayed between linked voice channels, across servers and even across platforms (Discord ↔ Fluxer)
+
+<Callout type="warning">
+  Linking a voice channel requires **Orax Plus** — either on your server or on the server that owns the group. See [Orax Plus](/premium) for how to get it (including the free vote option).
+</Callout>
+
+## Linking a Voice Channel
+
+Voice channels are linked exactly like text channels:
+
+- **Discord**: run [`/link-channel`](/commands/link-channel) — the channel picker accepts text, voice, and stage channels
+- **Fluxer**: run `/link <group_link>`, or pick the voice channel from the [dashboard](https://oraxbot.com/dashboard/fluxer)
+
+Once linked, Orax joins the voice channel automatically whenever at least one person is in it, and leaves when it empties. There is nothing else to configure.
+
+### Required Permissions (Discord)
+
+| Permission | Why |
+|---|---|
+| **View Channel** | To see the channel |
+| **Connect** | To join the voice channel |
+| **Speak** | To relay audio into the channel |
+| **Send Messages** | To sync the voice channel's text chat |
+| **Manage Webhooks** | To create the relay webhook |
+
+## Chat Sync
+
+The text chat of a linked voice (or stage) channel works as a full relay destination:
+
+- Messages sent in the voice channel chat are relayed to every other channel in the group, and vice versa
+- [Edits and deletes](/features/edit-delete-sync) are synchronized
+- [`/resync`](/commands/resync) includes voice channel chats
+
+<Callout type="info">
+  Discord voice messages (audio notes) are excluded from edit sync, since they can never be edited.
+</Callout>
+
+## Voice Bridge
+
+When two or more voice channels are linked to the same group, Orax bridges **live audio** between them:
+
+- People talking in one server's voice channel are heard in every other linked voice channel
+- Works between Discord servers, and between **Discord ↔ Fluxer**
+- Each speaker's audio is mixed per group and re-broadcast to all connected channels
+- You never hear your own server's audio echoed back
+
+### Behavior
+
+- Orax **only joins when at least one human is present** and leaves automatically when the channel empties
+- If the bot is kicked or moved, it rejoins automatically
+- On **stage channels**, Orax un-suppresses itself so it can speak
+- Users [muted in the group](/commands/mute-user) are also muted in the voice bridge
+- Unlinking the channel makes Orax leave immediately
+
+## Limits
+
+| Limit | Value |
+|---|---|
+| Linked voice channels per Discord server | **1** (the bot can only hold one voice connection per server) |
+| Linked voice channels per group | **5** |
+
+If you try to link a second voice channel in the same server, you'll get:
+
+> ❌ This server already has a linked voice channel. I can only be in one voice channel per server — unlink it first.
+
+## Platform Support
+
+| Platform | Chat sync | Voice bridge |
+|---|---|---|
+| Discord (voice & stage) | ✅ | ✅ |
+| Fluxer | ✅ | ✅ (via LiveKit) |
+| Telegram | ❌ | ❌ |
+
+<Callout type="info">
+  On Fluxer, voice channels using the **legacy UDP protocol** are send-only: Orax can relay audio *into* them, but audio from Fluxer participants is not captured. Channels on the LiveKit backend (the default) support full two-way audio.
+</Callout>
+
+## What Happens Without Orax Plus
+
+- Linking a voice channel fails with an Orax Plus required message
+- If Plus expires after linking, Orax won't join the voice channel. It will post a one-time notice (at most once every 6 hours) in the voice channel's chat with a **Get Orax Plus** button
+- Chat sync for already-linked voice channels is unaffected — only the audio bridge requires Plus to be active

@@ -7,5 +7,6 @@ export default {
   'stickers': 'Stickers',
   'polls': 'Polls',
   'custom-emojis': 'Custom Emojis',
+  'voice-channels': 'Voice Channels',
   'auto-translate': 'Auto Translate'
 }
