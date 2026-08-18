@@ -1,6 +1,6 @@
-# Voice Channels
+# Voice Channels [BETA]
 
-import { Callout } from 'nextra/components'
+import { Callout } from "nextra/components";
 
 Orax can link **voice channels** to interserv groups — not just text channels. Linked voice channels get two superpowers:
 
@@ -8,7 +8,9 @@ Orax can link **voice channels** to interserv groups — not just text channels.
 2. **Voice bridge** — live audio is relayed between linked voice channels, across servers and even across platforms (Discord ↔ Fluxer)
 
 <Callout type="warning">
-  Linking a voice channel requires **Orax Plus** — either on your server or on the server that owns the group. See [Orax Plus](/premium) for how to get it (including the free vote option).
+  Linking a voice channel requires **Orax Plus** — either on your server or on
+  the server that owns the group. See [Orax Plus](/premium) for how to get it
+  (including the free vote option).
 </Callout>
 
 ## Linking a Voice Channel
@@ -22,13 +24,13 @@ Once linked, Orax joins the voice channel automatically whenever at least one pe
 
 ### Required Permissions (Discord)
 
-| Permission | Why |
-|---|---|
-| **View Channel** | To see the channel |
-| **Connect** | To join the voice channel |
-| **Speak** | To relay audio into the channel |
-| **Send Messages** | To sync the voice channel's text chat |
-| **Manage Webhooks** | To create the relay webhook |
+| Permission          | Why                                   |
+| ------------------- | ------------------------------------- |
+| **View Channel**    | To see the channel                    |
+| **Connect**         | To join the voice channel             |
+| **Speak**           | To relay audio into the channel       |
+| **Send Messages**   | To sync the voice channel's text chat |
+| **Manage Webhooks** | To create the relay webhook           |
 
 ## Chat Sync
 
@@ -39,7 +41,8 @@ The text chat of a linked voice (or stage) channel works as a full relay destina
 - [`/resync`](/commands/resync) includes voice channel chats
 
 <Callout type="info">
-  Discord voice messages (audio notes) are excluded from edit sync, since they can never be edited.
+  Discord voice messages (audio notes) are excluded from edit sync, since they
+  can never be edited.
 </Callout>
 
 ## Voice Bridge
@@ -61,10 +64,10 @@ When two or more voice channels are linked to the same group, Orax bridges **liv
 
 ## Limits
 
-| Limit | Value |
-|---|---|
+| Limit                                    | Value                                                         |
+| ---------------------------------------- | ------------------------------------------------------------- |
 | Linked voice channels per Discord server | **1** (the bot can only hold one voice connection per server) |
-| Linked voice channels per group | **5** |
+| Linked voice channels per group          | **5**                                                         |
 
 If you try to link a second voice channel in the same server, you'll get:
 
@@ -72,14 +75,17 @@ If you try to link a second voice channel in the same server, you'll get:
 
 ## Platform Support
 
-| Platform | Chat sync | Voice bridge |
-|---|---|---|
-| Discord (voice & stage) | ✅ | ✅ |
-| Fluxer | ✅ | ✅ (via LiveKit) |
-| Telegram | ❌ | ❌ |
+| Platform                | Chat sync | Voice bridge     |
+| ----------------------- | --------- | ---------------- |
+| Discord (voice & stage) | ✅        | ✅               |
+| Fluxer                  | ✅        | ✅ (via LiveKit) |
+| Telegram                | ❌        | ❌               |
 
 <Callout type="info">
-  On Fluxer, voice channels using the **legacy UDP protocol** are send-only: Orax can relay audio *into* them, but audio from Fluxer participants is not captured. Channels on the LiveKit backend (the default) support full two-way audio.
+  On Fluxer, voice channels using the **legacy UDP protocol** are send-only:
+  Orax can relay audio *into* them, but audio from Fluxer participants is not
+  captured. Channels on the LiveKit backend (the default) support full two-way
+  audio.
 </Callout>
 
 ## What Happens Without Orax Plus
