@@ -1,0 +1,52 @@
+# /settings
+
+import { Callout } from 'nextra/components'
+
+Opens your **personal** interserv settings. These apply to you across groups, not to the group itself.
+
+## Usage
+
+```
+/settings
+```
+
+## Permissions
+
+- **Everyone** — Any member can manage their own settings
+
+## Settings
+
+| Setting | Options | Default |
+|---|---|---|
+| **Who can ping you** (`whoCanPing`) | `anyone`, `nobody`, or `selected` (up to 25 allowed users) | Anyone |
+| **Nickname** (`nickname`) | Custom display name in relayed messages (max 80 characters) | Your platform nickname / display name |
+
+The nickname is used by `{nickname}` in the group's [custom usernames](/configuration/custom-usernames) pattern.
+
+## Discord
+
+Run `/settings` to open a private panel. You can change ping mode, edit your nickname, and pick allowed pingers from a user selector.
+
+## Fluxer
+
+```
+/settings
+/settings edit <key>
+/settings set <key> <value>
+/settings clear <key>
+/settings allow whoCanPing <user_id>
+/settings disallow whoCanPing <user_id>
+```
+
+Examples:
+
+```
+/settings set whoCanPing nobody
+/settings set nickname Cool Name
+/settings clear nickname
+/settings allow whoCanPing 12345
+```
+
+<Callout type="info">
+  Ping filtering only affects **mentions of you** in relayed messages. Group-wide `@everyone` / `@here` behavior is a [group setting](/configuration/group-settings).
+</Callout>

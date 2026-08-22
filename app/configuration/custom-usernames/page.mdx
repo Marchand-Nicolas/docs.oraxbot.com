@@ -13,9 +13,13 @@ The **custom usernames pattern** is a string that can contain dynamic variables 
 | Variable | Description | Example Output |
 |---|---|---|
 | `{username}` | The user's Discord username | JohnDoe |
-| `{nickname}` | The user's server-specific nickname (falls back to username) | Johnny |
+| `{nickname}` | Personal `/settings` nickname, then server nickname, then display name | Johnny |
 | `{serverName}` | The name of the originating Discord server | Server Alpha |
-| `{role}` | The user's highest role name in the server | Moderator |
+| `{role}` | The user's first non-@everyone role name | Moderator |
+| `{userId}` | The user's ID | 123456789 |
+| `{channelId}` | Origin channel ID | 987654321 |
+| `{discriminator}` | Legacy discriminator | 0001 |
+| `!!!{variable}` | Uppercased value of any variable | JOHNDOE |
 
 ### Example Patterns
 
@@ -53,7 +57,7 @@ By default, the user's Discord avatar is used. You would typically only set a cu
 
 ### Via Discord
 
-Use the `/manage-group` command and select the "Custom Usernames" option.
+Username patterns are configured from the [dashboard](https://oraxbot.com/dashboard). `/manage-group` only exposes toggle settings.
 
 <Callout type="info">
   Custom username patterns apply group-wide. They cannot be overridden per channel.

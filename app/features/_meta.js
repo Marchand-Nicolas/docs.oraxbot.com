@@ -8,5 +8,6 @@ export default {
   'polls': 'Polls',
   'custom-emojis': 'Custom Emojis',
   'voice-channels': 'Voice Channels',
-  'auto-translate': 'Auto Translate'
+  'auto-translate': 'Auto Translate',
+  'giveaways': 'Giveaways'
 }

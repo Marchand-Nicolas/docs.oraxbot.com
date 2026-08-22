@@ -7,8 +7,12 @@ Traces a synced message back to its original author and server. This is useful f
 ## Usage
 
 ```
-/track
+/track message_link:<link>
 ```
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `message_link` | String | Yes | Link to a synced message |
 
 ## Permissions
 
@@ -16,7 +20,7 @@ Traces a synced message back to its original author and server. This is useful f
 
 ## What It Does
 
-1. Prompts you to provide a message link to a synced message in the current channel
+1. You provide a message link to a synced message
 2. Orax looks up the message in its database
 3. Returns information about the original message:
    - **Original author** — Username and user ID
@@ -27,8 +31,7 @@ Traces a synced message back to its original author and server. This is useful f
 ## Example
 
 ```
-/track
-> Message link: https://discord.com/channels/123/456/789
+/track message_link:https://discord.com/channels/123/456/789
 ```
 
 **Bot response:**

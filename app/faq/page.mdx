@@ -47,7 +47,7 @@ Yes! You can link as many channels as your plan allows (5 for free, 50 for Orax 
 
 ### Are reactions synced?
 
-Yes! Reactions added to any message are replicated across all mirrored copies. See [Reactions](/features/reactions).
+Yes — **adding** a reaction is replicated across all mirrored copies. Removing a reaction is not synced. See [Reactions](/features/reactions).
 
 ### Are message edits and deletions synced?
 
@@ -66,6 +66,14 @@ Type `:!emoji_name:` to insert an emoji by name. The bot searches all its server
 Orax aggregates vote counts from all mirrored copies of the poll across all servers and posts the combined results. See [Polls](/features/polls).
 
 ## Configuration
+
+### Can I run giveaways across servers?
+
+Yes. Use `/giveaway` in a linked channel and the giveaway is relayed to every connected server. See [Giveaways](/features/giveaways).
+
+### How do I stop people from pinging me?
+
+Use `/settings` and set **Who can ping you** to `nobody` or a selected list. You can also set a personal nickname used in `{nickname}` patterns.
 
 ### How do I change how usernames appear?
 
@@ -91,7 +99,7 @@ Use `/mute-user-from-interserv-group` with a message link or user ID. See [Mutin
 
 ### Can I temporarily stop all messages?
 
-Yes! Use `/lock` to prevent non-admins from sending messages. Use `/unlock` to reverse it. See [Locking Groups](/moderation/locking).
+Yes. `/lock` (owner server) deletes messages from guest servers and from non-admins on the owner server. Guest servers can also toggle lock via `/manage-group`. See [Locking Groups](/moderation/locking).
 
 ### How do I find who sent a specific message?
 
@@ -115,7 +123,7 @@ Contact us at nicomarchand29@gmail.com to request data deletion.
 
 ### What does Orax Plus give me?
 
-Orax Plus increases your limits: 100 groups per server (up from 2) and 50 channels per group (up from 5). All features are available on the free plan. See [Orax Plus](/premium).
+Orax Plus increases your limits: 100 groups per server (up from 2) and 50 channels per group (up from 5). It also unlocks Auto Translate, `/resync`, voice channels, and priority message delivery. See [Orax Plus](/premium).
 
 ### How do I get Orax Plus for free?
 

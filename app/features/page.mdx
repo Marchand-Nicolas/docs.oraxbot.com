@@ -2,7 +2,7 @@
 
 import { Cards } from 'nextra/components'
 
-Orax provides a comprehensive set of features for cross-server communication on Discord. Here's everything Orax can do:
+Orax provides a comprehensive set of features for cross-server communication on Discord, Fluxer, and Telegram. Here's everything Orax can do:
 
 <Cards>
   <Cards.Card title="Message Sync" href="/features/message-sync" />
@@ -14,6 +14,7 @@ Orax provides a comprehensive set of features for cross-server communication on 
   <Cards.Card title="Custom Emojis" href="/features/custom-emojis" />
   <Cards.Card title="Voice Channels" href="/features/voice-channels" />
   <Cards.Card title="Auto Translate" href="/features/auto-translate" />
+  <Cards.Card title="Giveaways" href="/features/giveaways" />
 </Cards>
 
 ## Feature Summary
@@ -25,7 +26,7 @@ Orax's core feature. Messages sent in any linked channel are instantly relayed t
 When you edit or delete a message, the change is automatically propagated to all mirrored copies across every connected server. Delete sync can be disabled per group.
 
 ### Reactions
-Reactions added to a message are replicated across all mirrored copies of that message in other servers. Reactions work bidirectionally.
+Reactions **added** to a message are replicated across all mirrored copies. Reaction **removal** is not synced.
 
 ### Threads
 When a thread is created on a message, corresponding threads are automatically created on all mirrored messages. Thread deletions are also synchronized.
@@ -44,3 +45,6 @@ Link voice (and stage) channels to interserv groups. Their text chat syncs like 
 
 ### Auto Translate
 Automatically translate synced messages into the target language of each channel with auto source-language detection. Requires **Orax Plus**.
+
+### Giveaways
+Run giveaways in any channel. In a linked channel they are relayed across the group so every connected server can enter.

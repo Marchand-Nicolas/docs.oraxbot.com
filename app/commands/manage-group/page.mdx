@@ -12,8 +12,9 @@ Opens an interactive button-based settings panel for managing the interserv grou
 
 ## Permissions
 
-- **Manage Guild** — The user must have Manage Server permission (or be a group moderator)
-- The command must be run in the server that **owns** the group
+- **Moderator** — Group moderator (or Manage Messages if no custom list is set). Server administrators always count
+- Full toggles are available in the **owner** server
+- On a **guest** server, only **lock / unlock** is available, plus a dashboard link for the rest
 
 ## What It Does
 
@@ -35,14 +36,21 @@ Displays an interactive panel with toggle buttons for the most common group sett
 
 ## How to Use
 
-1. Run `/manage-group` in a channel linked to a group **owned by this server**
+1. Run `/manage-group` in a linked channel
 2. The bot responds (privately, only visible to you) with a panel of toggle buttons
 3. Click a button to flip that setting — the panel updates immediately
 4. The new value applies to **all channels** in the group across every connected server
 
+On Fluxer:
+
+```
+/manage-group
+/manage-group set <setting> <true|false>
+```
+
 ## Notes
 
-- Only the server that **owns** the group can manage it. Run the command from a channel in the owner server.
+- Guest servers can only toggle lock. Other settings must be changed from the owner server or the dashboard.
 - Settings apply to **all channels** in the group across all servers
 - Per-channel overrides (such as translation language) can still be set from the dashboard
 - See the [Configuration](/configuration) section for detailed explanations of each setting

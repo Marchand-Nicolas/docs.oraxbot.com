@@ -12,14 +12,15 @@ Prevents non-admin users from sending messages in the interserv group. This is u
 
 ## Permissions
 
-- **Moderator** — The user must be a group moderator or have Manage Messages permission
+- **Moderator** — Group moderator (or Manage Messages if no custom list is set)
+- Must be run in the **owner** server of the group
 
 ## What It Does
 
 1. Enables the lock on the interserv group
-2. Non-admin users' messages in all linked channels will be blocked
-3. Only moderators and admins can send messages while the lock is active
-4. A notification is sent to inform users that the group is locked
+2. Messages from guest servers are blocked
+3. On the owner server, only **Administrators** can send; everyone else is blocked
+4. Blocked messages are deleted and can be logged if a log channel is set
 
 ## Example
 
@@ -28,9 +29,7 @@ Prevents non-admin users from sending messages in the interserv group. This is u
 ```
 
 **Bot response:**
-> 🔒 The interserv group **"My Awesome Group"** has been locked.
-> 
-> Only moderators and administrators can send messages until the group is unlocked.
+> ✅ Locked the group. Only admins of this server can send messages.
 
 ## Unlocking
 

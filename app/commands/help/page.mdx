@@ -1,0 +1,25 @@
+# /help
+
+import { Callout } from 'nextra/components'
+
+Shows a short guide for using Orax, with useful links. On platforms without a built-in command list, it also lists available commands.
+
+## Usage
+
+```
+/help
+```
+
+## Permissions
+
+- **Everyone** — Any server member can use this command
+
+## What It Does
+
+- Shows how Orax works and where to find the dashboard, docs, and support
+- Lists commands when the platform does not already show them (for example Fluxer)
+- If you are a **server administrator**, includes a **Change bot language** button (English, Spanish, French)
+
+<Callout type="info">
+  Server language is also stored as a [server-level setting](/configuration#server-level-settings). On Fluxer, admins can use `/language` and `/set_language <en|es|fr>`.
+</Callout>

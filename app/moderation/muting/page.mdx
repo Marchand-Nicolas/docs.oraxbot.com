@@ -36,11 +36,14 @@ Use the `/mute-user-from-interserv-group` command. You can provide either:
 ### Viewing Muted Users
 
 - **Dashboard**: Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard) → Group Settings → Muted Users
-- **Discord**: Use `/manage-group` and navigate to the muted users section
 
 ### Unmuting
 
-Use the `/unmute-user-from-interserv-group` command with the user's Discord ID, or unmute from the dashboard.
+Use `/unmute-user-from-interserv-group` with a message link or user ID, or unmute from the dashboard.
+
+### Silent mute
+
+Pass `silent:true` on `/mute-user-from-interserv-group` to leave the user's messages visible in the origin channel while blocking relay.
 
 ## Mute via Log Channel
 

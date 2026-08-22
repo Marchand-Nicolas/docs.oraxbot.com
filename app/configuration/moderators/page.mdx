@@ -1,8 +1,8 @@
 # Moderators
 
-import { Callout } from 'nextra/components'
+import { Callout } from "nextra/components";
 
-Moderators are users who can use moderation commands (`/lock`, `/unlock`, `/mute-user-from-interserv-group`, `/unmute-user-from-interserv-group`) in the interserv group.
+Moderators are users who can use moderation commands (`/lock`, `/unlock`, `/manage-group`, `/mute-user-from-interserv-group`, `/unmute-user-from-interserv-group`, `/giveaway`) in the interserv group.
 
 ## Default Behavior
 
@@ -10,7 +10,7 @@ By default, any member with the **Manage Messages** permission in their Discord 
 
 ## Custom Moderator List
 
-You can configure a specific list of usernames who are moderators, regardless of their Discord permissions. This is useful when you want to designate specific users as moderators for the interserv group without giving them server-level permissions.
+You can configure a specific list of users who are moderators, regardless of their Discord permissions. This is useful when you want to designate specific users as moderators for the interserv group without giving them server-level permissions.
 
 ### How It Works
 
@@ -18,7 +18,8 @@ You can configure a specific list of usernames who are moderators, regardless of
 - If the list is **empty**, the default behavior applies (anyone with Manage Messages permission is a moderator)
 
 <Callout type="info">
-  Server administrators always have moderator access, regardless of the custom moderator list.
+  Server administrators always have moderator access, regardless of the custom
+  moderator list. On Fluxer, only server admins count as moderators.
 </Callout>
 
 ## How to Configure
@@ -28,28 +29,30 @@ You can configure a specific list of usernames who are moderators, regardless of
 1. Go to [oraxbot.com/dashboard](https://oraxbot.com/dashboard)
 2. Select your server and group
 3. Under **Moderation & Security**, find the **Moderators** field
-4. Add usernames (one per line or comma-separated)
+4. Select users
 5. Save the changes
 
 ### Via Discord
 
-Use the `/manage-group` command and select the "Moderators" option.
+The moderator list is configured from the [dashboard](https://oraxbot.com/dashboard). `/manage-group` only exposes toggle settings.
 
 ## Moderator Permissions
 
 Moderators can use the following commands:
 
-| Command | Action |
-|---|---|
-| `/lock` | Lock the group (prevent non-admins from sending) |
-| `/unlock` | Unlock the group |
-| `/mute-user-from-interserv-group` | Mute a user in the group |
-| `/unmute-user-from-interserv-group` | Unmute a user in the group |
+| Command                             | Action                                                  |
+| ----------------------------------- | ------------------------------------------------------- |
+| `/lock` / `/unlock`                 | Lock the group (owner server only)                      |
+| `/manage-group`                     | Toggle common group settings (guest servers: lock only) |
+| `/mute-user-from-interserv-group`   | Mute a user in the group                                |
+| `/unmute-user-from-interserv-group` | Unmute a user in the group                              |
+| `/giveaway`                         | Create and manage giveaways                             |
 
 ## Cross-Server Moderation
 
 Moderators are **group-wide** — a moderator designated in one server has moderation powers across all channels in the interserv group, including in other servers' channels.
 
 <Callout type="warning">
-  Be careful who you designate as a moderator, as they can mute users and lock the group for all connected servers, not just your server.
+  Be careful who you designate as a moderator, as they can mute users and lock
+  the group for all connected servers, not just your server.
 </Callout>

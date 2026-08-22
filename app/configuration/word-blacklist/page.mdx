@@ -16,7 +16,7 @@ The word blacklist is a simple filtering system that prevents messages containin
 
 ## Adding Words
 
-You can add any words or phrases to the blacklist. Matching is case-insensitive and checks for substrings (e.g., blacklisting "spam" will also block "spamming" and "spammer").
+You can add any words or phrases to the blacklist. Matching is case-insensitive and uses **whole words** (blacklisting `spam` blocks `spam` and `Spam!`, but not `spamming`). Hyphenated phrases still match (`ass` matches `ass-hat`).
 
 ## How to Configure
 
@@ -30,7 +30,7 @@ You can add any words or phrases to the blacklist. Matching is case-insensitive 
 
 ### Via Discord
 
-Use the `/manage-group` command and select the "Blacklist" option.
+The word blacklist is configured from the [dashboard](https://oraxbot.com/dashboard). `/manage-group` only exposes toggle settings.
 
 ## Example
 

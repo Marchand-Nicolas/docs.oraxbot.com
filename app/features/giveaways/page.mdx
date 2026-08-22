@@ -1,0 +1,25 @@
+# Giveaways
+
+import { Callout } from 'nextra/components'
+
+Orax can run giveaways in any channel. In a linked interserv channel, the giveaway message is relayed to every connected server so people on Discord, Fluxer, and Telegram can enter the same draw.
+
+## How It Works
+
+1. An admin or [group moderator](/configuration/moderators) runs [`/giveaway`](/commands/giveaway)
+2. They set a prize, duration (10 seconds–30 days), and number of winners (1–20)
+3. Members enter with the **Participate** button (or `/giveaway enter <id>` on Fluxer)
+4. When time is up, Orax picks winners and posts the result
+5. The host can **end** early, **cancel**, or **reroll** after it ends
+
+## Options
+
+| Option | Effect |
+|---|---|
+| Required role | Only members with that role can enter (Discord) |
+| Minimum account age | Accounts younger than N days cannot enter |
+| Bonus role / bonus entries | Members with the bonus role get extra weight (default 2) |
+
+<Callout type="info">
+  Giveaways are **not** an Orax Plus feature. Creating one only needs Administrator or group moderator permission.
+</Callout>

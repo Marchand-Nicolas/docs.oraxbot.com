@@ -7,8 +7,13 @@ Mutes a user in the interserv group. The muted user's messages will no longer be
 ## Usage
 
 ```
-/mute-user-from-interserv-group
+/mute-user-from-interserv-group message_link:<link or user ID> [silent:true]
 ```
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `message_link` | String | Yes | Message link, or the author's user ID |
+| `silent` | Boolean | No | If true, the user's messages stay visible locally but are not synced |
 
 ## Permissions
 
@@ -16,11 +21,10 @@ Mutes a user in the interserv group. The muted user's messages will no longer be
 
 ## What It Does
 
-1. Prompts you to provide either a **message link** or a **user ID**
-2. If a message link is provided, Orax looks up the original sender
-3. The user is added to the group's mute list
-4. Future messages from this user will be blocked in all linked channels
-5. If a moderation log channel is configured, the mute is logged with an inline mute button
+1. Resolves the user from a **message link** or **user ID**
+2. The user is added to the group's mute list
+3. Future messages from this user are blocked in all linked channels (or not relayed, if silent)
+4. If a log channel is configured, the mute is logged
 
 ## Input Methods
 
@@ -32,25 +36,20 @@ Mutes a user in the interserv group. The muted user's messages will no longer be
 ## Example
 
 ```
-/mute-user-from-interserv-group
-> Message link or User ID: https://discord.com/channels/123/456/789
+/mute-user-from-interserv-group message_link:https://discord.com/channels/123/456/789
 ```
 
 **Bot response:**
-> ✅ User **JohnDoe** (ID: 123456789) has been muted in the interserv group.
->
-> Their messages will no longer be synced.
+> ✅ User muted in the group.
 
 ## Tracking Muted Users
 
-Muted users are listed in the group's mute list, which can be viewed and managed from:
-- The [Orax Dashboard](https://oraxbot.com/dashboard) → Group Settings → Muted Users
-- The `/manage-group` command
+Muted users are listed in the group's mute list on the [Orax Dashboard](https://oraxbot.com/dashboard) → Group Settings → Muted Users.
 
 ## Unmuting
 
 To remove a mute, use the [`/unmute-user-from-interserv-group`](/commands/unmute-user) command.
 
 <Callout type="info">
-  Muting is per-group — a user muted in one interserv group can still participate in other groups.
+  Muting is per-group — a user muted in one interserv group can still participate in other groups. A **silent** mute leaves their messages visible in the origin channel but does not relay them.
 </Callout>

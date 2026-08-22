@@ -20,14 +20,14 @@ You need the join link for the interserv group you want to connect to. The group
 In the channel you want to link, use:
 
 ```
-/link-channel
+/link-channel channel:<channel> link:<join link>
 ```
 
-You'll need **Manage Messages** permission to use this command.
+You'll need **Administrator** permission to use this command.
 
 ### Enter the Join Link
 
-Paste the join link when prompted. Orax will verify the link and connect your channel to the group.
+Pick the channel and paste the join link. Orax will verify the link and connect the channel to the group.
 
 ### Start Chatting
 
@@ -59,7 +59,7 @@ You can link multiple channels in your server to the same or different groups:
 To remove a channel from a group, use:
 
 ```
-/unlink-channel
+/unlink-channel channel:<channel>
 ```
 
 This removes the channel from all interserv groups it's connected to. You need **Administrator** permission to unlink.

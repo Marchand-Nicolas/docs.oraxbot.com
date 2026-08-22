@@ -1,0 +1,57 @@
+# /giveaway
+
+import { Callout } from 'nextra/components'
+
+Creates and manages giveaways. If the channel is linked to an interserv group, the giveaway is relayed as **Orax Giveaways** to every linked channel.
+
+## Usage
+
+```
+/giveaway
+```
+
+On Discord this opens an admin menu (create via a modal, or manage an existing giveaway). Anyone can enter with the **Participate** button on the giveaway message.
+
+## Permissions
+
+| Action | Who |
+|---|---|
+| Open menu / create | Server **Administrator** or [group moderator](/configuration/moderators) |
+| Enter / leave | Everyone |
+| End / cancel / reroll | Giveaway host, server administrator, or group moderator |
+
+## Discord create fields
+
+| Field | Required | Details |
+|---|---|---|
+| Prize | Yes | Max 200 characters |
+| Duration | Yes | `10m`, `2h`, `1d`, `1d 12h`, or seconds. Min **10 seconds**, max **30 days** |
+| Winners | No | 1–20 (default 1) |
+| Description | No | Max 1000 characters |
+| Image URL | No | HTTPS image shown on the giveaway |
+
+## Fluxer
+
+```
+/giveaway
+/giveaway 10m Nitro
+/giveaway enter <id>
+/giveaway leave <id>
+/giveaway end <id>
+/giveaway cancel <id>
+/giveaway reroll <id>
+```
+
+Optional flags when creating:
+
+`--winners`, `--description`, `--image`, `--color`, `--required_role`, `--min_account_age`, `--bonus_role`, `--bonus_entries`
+
+## Notes
+
+- Giveaways work in **any** channel. Linking the channel makes them sync across the group.
+- Participants can toggle the Participate button to leave.
+- See [Giveaways](/features/giveaways) for how entries and winners work.
+
+<Callout type="info">
+  Telegram also supports `/giveaway`. Feature coverage on Telegram is otherwise limited to text relay.
+</Callout>

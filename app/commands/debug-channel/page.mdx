@@ -2,13 +2,17 @@
 
 import { Callout } from 'nextra/components'
 
-Runs diagnostic checks on the current channel to help troubleshoot issues with message synchronization.
+Runs diagnostic checks on a text channel to help troubleshoot issues with message synchronization. Discord only — Fluxer replies that this command is not supported.
 
 ## Usage
 
 ```
-/debug-channel
+/debug-channel channel:<channel>
 ```
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `channel` | Channel | Yes | Text channel to inspect |
 
 ## Permissions
 
@@ -18,31 +22,39 @@ Runs diagnostic checks on the current channel to help troubleshoot issues with m
 
 | Check | Description |
 |---|---|
-| **Webhook exists** | Verifies that the Orax webhook is present in the channel |
-| **Webhook functional** | Tests if the webhook can be used to send messages |
-| **Bot permissions** | Checks if the bot has the required permissions |
 | **Channel linked** | Confirms the channel is linked to an interserv group |
-| **Group active** | Verifies the interserv group is valid and active |
+| **Group id** | Shows the group id if the channel is linked |
+| **Multiple groups** | Warns if the channel is linked to more than one group |
+| **Group locked** | Whether lock is deleting non-admin messages |
+| **Sync disabled** | Whether relay is paused |
+| **Filter rules** | Count of active message filters |
+| **Message direction** | Per-channel incoming/outgoing overrides in the group |
+| **Manage Webhooks** | Bot can manage webhooks in the channel |
+| **Send Messages** | Bot can send messages in the channel |
+| **Webhook** | Orax webhook is present |
 
 ## Example Output
 
 **All checks pass:**
-> ✅ **Debug Results for #general**
-> 
-> - ✅ Webhook found: Orax#1234
-> - ✅ Webhook is functional
-> - ✅ Bot has required permissions
-> - ✅ Channel is linked to group: "My Awesome Group"
-> - ✅ Group is active
+> __general__ debugging
+>
+> **Channel type :** ✅ Inter-server channel
+> **Group id :** ✅ 42
+> **Group locked :** ✅ No
+> **Sync disabled :** ✅ No
+> **Filter rules :** ✅ None
+> **Can manage webhooks :** ✅ Yes
+> **Can send messages :** ✅ Yes
+> **Webhook :** ✅ Found
 
 **Issues found:**
-> ⚠️ **Debug Results for #general**
-> 
-> - ❌ Webhook not found — The Orax webhook was deleted
-> - ⚠️ Please unlink and re-link this channel to fix the issue
-> - ✅ Bot has required permissions
-> - ✅ Channel is linked to group: "My Awesome Group"
-> - ✅ Group is active
+> __general__ debugging
+>
+> **Channel type :** ✅ Inter-server channel
+> **Group id :** ✅ 42
+> **Can manage webhooks :** ✅ Yes
+> **Can send messages :** ✅ Yes
+> **No webhook found** ❌ No webhook found
 
 <Callout type="tip">
   If you're experiencing issues with message sync, run this command first to identify the problem. The most common issue is a deleted webhook.

@@ -17,11 +17,11 @@ Add Orax to your Fluxer server using the invite link above. Make sure the bot ha
 
 ### Create an interserv group
 
-Run the `/create-group <name>` command in any Fluxer channel, or use the **Create an interserver group** button in the [dashboard](https://oraxbot.com/dashboard/fluxer). A group is the hub that connects channels across servers and platforms.
+Run `/create-interserv-group <name>` in any Fluxer channel, or use the **Create an interserver group** button in the [dashboard](https://oraxbot.com/dashboard/fluxer). A group is the hub that connects channels across servers and platforms.
 
 ### Link a channel
 
-Run the `/link <group_link>` command in the Fluxer channel you want to connect. You can find the group link on the [explore](https://oraxbot.com/explore) page.
+Run `/link-channel <group_link>` in the Fluxer channel you want to connect. You can find the group link on the [explore](https://oraxbot.com/explore) page.
 
 ### Start chatting
 
@@ -41,20 +41,24 @@ Fluxer servers are fully manageable from the [Orax Dashboard](https://oraxbot.co
 
 Orax supports the following commands directly inside Fluxer channels:
 
-| Command                           | Description                                          |
-| --------------------------------- | ---------------------------------------------------- |
-| **`/link <group_link>`**          | Link the current channel to an interserv group       |
-| **`/link #channel <group_link>`** | Link a specific channel to a group                   |
-| **`/unlink`**                     | Unlink the current channel from its group            |
-| **`/unlink #channel`**            | Unlink a specific channel                            |
-| **`/create-group <name>`**        | Create a new interserv group                         |
-| **`/channel-infos [page]`**       | Show information about the group linked to this channel |
-| **`/help`**                       | Show the list of available commands and useful links |
+| Command | Description |
+| --- | --- |
+| **`/link-channel <group_link>`** | Link the current channel (`/link-channel #channel <group_link>` for another channel) |
+| **`/unlink-channel`** | Unlink the current channel (`/unlink-channel #channel` for another) |
+| **`/create-interserv-group <name>`** | Create a new interserv group |
+| **`/channel-infos [page]`** | Group info for this channel |
+| **`/help`** | Help text, command list, and links |
+| **`/settings`** | Personal nickname and ping preferences |
+| **`/giveaway`** | Create and manage giveaways |
+| **`/manage-group`** | Toggle group settings (`/manage-group set <setting> <true\|false>`) |
+| **`/lock`** / **`/unlock`** | Lock the group (owner server, admin) |
+| **`/mute-user-from-interserv-group`** | Mute a user (`message_link` or user ID) |
+| **`/resync`** | Re-sync last 30 messages (**Orax Plus**) |
 
 <Callout type="warning">
-  Linking, unlinking, and creating groups require the **Administrator**
-  permission in the Fluxer server. Non-administrators can still send and receive
-  messages in linked channels.
+  Linking, unlinking, creating groups, and Fluxer group moderation require
+  **Administrator**. Fluxer does not use the Discord moderator list — only
+  admins can mute, lock, or manage the group.
 </Callout>
 
 ## How Message Sync Works
@@ -114,7 +118,7 @@ Mentions from Discord are reprocessed and cleaned up before being relayed into F
 
 ## Voice Channels
 
-Fluxer **voice channels** can be linked to interserv groups — either with `/link <group_link>` in the voice channel, or by picking the voice channel from the dashboard. Linked voice channels get:
+Fluxer **voice channels** can be linked to interserv groups — either with `/link-channel <group_link>` in the voice channel, or by picking the voice channel from the dashboard. Linked voice channels get:
 
 - **Chat sync** — the voice channel's text chat syncs like any other linked channel
 - **Voice bridge** — live audio is relayed between linked voice channels, including **Discord ↔ Fluxer** bridging. Fluxer voice runs on LiveKit, which gives full two-way audio with linked Discord voice channels

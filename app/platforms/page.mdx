@@ -2,7 +2,7 @@
 
 import { Cards, Callout } from 'nextra/components'
 
-Orax is available on multiple platforms, so you can bridge conversations wherever your community lives. Each platform runs the same Orax core, keeping messages, reactions, and threads in sync across all connected channels.
+Orax is available on multiple platforms, so you can bridge conversations wherever your community lives. Discord and Fluxer share the full feature set (messages, reactions, threads, voice). Telegram currently relays **text** (plus `/setup_interserv_group` and `/giveaway`).
 
 <Cards>
   <Cards.Card title="Discord" href="https://discord.com/api/oauth2/authorize?client_id=812298057470967858&permissions=533113138240&scope=bot" />
@@ -30,6 +30,8 @@ Telegram is supported by Orax, bringing the same cross-server bridging experienc
 
 1. Add Orax to your Telegram group via [@InterServerBot](https://t.me/InterServerBot).
 2. Run `/setup_interserv_group <group_link>` in the group to connect it to an interserv group.
+
+Telegram currently relays **text** only. `/giveaway` is also available.
 
 <Callout type="info">
   Channels on Discord, Fluxer, and Telegram can be linked to the same interserv group, letting

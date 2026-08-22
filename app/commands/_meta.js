@@ -12,5 +12,8 @@ export default {
   'mute-user': 'Mute User',
   'unmute-user': 'Unmute User',
   'track': 'Track',
-  'rules': 'Rules'
+  'rules': 'Rules',
+  'help': 'Help',
+  'settings': 'Settings',
+  'giveaway': 'Giveaway'
 }

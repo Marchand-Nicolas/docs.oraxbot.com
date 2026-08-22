@@ -1,12 +1,16 @@
 # /unlink-channel
 
-Unlinks the current channel from all interserv groups it's connected to.
+Unlinks a channel from all interserv groups it's connected to.
 
 ## Usage
 
 ```
-/unlink-channel
+/unlink-channel channel:<channel>
 ```
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `channel` | Channel | Yes | Text, voice, or stage channel to unlink |
 
 ## Permissions
 
@@ -21,7 +25,7 @@ Unlinks the current channel from all interserv groups it's connected to.
 ## Example
 
 ```
-/unlink-channel
+/unlink-channel channel:#general
 ```
 
 **Bot response:**
