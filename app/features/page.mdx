@@ -35,7 +35,7 @@ When a thread is created on a message, corresponding threads are automatically c
 All sticker formats are supported: PNG, APNG, GIF, and Lottie. Lottie and APNG stickers are automatically converted to GIF format. A local file cache prevents redundant downloads.
 
 ### Polls
-When a Discord poll expires, Orax aggregates the vote counts from all mirrored copies of the poll across all servers and posts the combined results.
+Discord native polls and Fluxer `/poll` are relayed across the group. When a poll ends, Orax sums votes from every copy (including Fluxer) and posts the combined results.
 
 ### Custom Emojis
 Type `:!emoji_name:` to insert an emoji by name on Discord or Fluxer. The bot resolves it to actual emoji markup if accessible, or converts it to a linked image otherwise. Emojis are also translated across platforms when messages are relayed.

@@ -2,44 +2,66 @@
 
 import { Callout } from 'nextra/components'
 
-Orax synchronizes Discord polls across interserver groups and aggregates vote counts from all mirrored copies when a poll expires.
+Orax syncs polls across interserv groups. Discord uses native polls. Fluxer uses [`/poll`](/commands/poll). When a poll ends, votes from every mirrored copy are counted together and the combined results are posted.
 
-## How It Works
+## Discord (native polls)
 
-### Poll Creation
+Create a poll with Discord's built-in poll UI in a linked channel. Orax then:
 
-When a user creates a poll in a linked channel:
+1. Detects the poll on the message
+2. Relays it to every other linked channel
+3. Stores the question, answers, and expiry
 
-1. Orax detects the poll in the message
-2. The poll is relayed to all other linked channels along with the message
-3. The poll's metadata (question, answers, expiry) is stored in the database
-
-### Vote Aggregation
-
-When a poll expires:
-
-1. Orax's poll aggregator scheduler detects the expired poll
-2. The bot fetches vote counts from **all** mirrored copies of the poll across all servers
-3. Vote counts are **aggregated** — the total votes for each answer are summed across all copies
-4. The combined results are posted as a follow-up message in all linked channels
+On **other Discord channels**, members vote on a native Discord poll copy. On **Fluxer**, the poll is posted as text with numbered vote buttons. On **Telegram**, it is posted as text only (no voting).
 
 <Callout type="info">
-  This means that even though users in different servers are voting on separate copies of the poll, their votes are all counted together in the final results.
+  There is no `/poll` slash command on Discord. Use Discord's native poll composer.
+</Callout>
+
+## Fluxer (`/poll`)
+
+Fluxer has no native polls. Use [`/poll`](/commands/poll) in any Fluxer channel:
+
+```
+/poll "Best game?" "Chess" "Go" --duration 2h
+```
+
+That posts an **Orax Polls** panel with a vote menu. In a linked channel it is relayed to the rest of the group. Members vote with the menu or `/poll vote <id> <option number>`.
+
+Default duration is **24 hours**. Options: **2–10**. Multiple answers are allowed unless you pass `--single`.
+
+## Vote aggregation
+
+When a poll expires (or is ended early on Fluxer):
+
+1. A scheduler checks for due polls about every **15 seconds**
+2. Orax reads vote counts from **all** Discord copies of the poll
+3. Fluxer votes stored in the database are added to those totals
+4. Combined results are posted in every linked channel as **Orax Polls**
+
+<Callout type="info">
+  People vote on separate copies (native Discord polls vs Fluxer buttons). The final tally is still one combined result.
 </Callout>
 
 ## Example
 
-If a poll is synced across 3 servers:
+If a poll is synced across 3 Discord servers:
+
 - Server A: 10 votes for option 1, 5 votes for option 2
 - Server B: 8 votes for option 1, 3 votes for option 2
 - Server C: 2 votes for option 1, 7 votes for option 2
 
 The aggregated result posted by Orax would be:
+
 - Option 1: 20 votes
 - Option 2: 15 votes
 
+Fluxer votes for the same options are added on top of that.
+
 ## Limitations
 
-- Poll aggregation runs on a scheduler (checked periodically), so results may not appear immediately when a poll expires
-- Only polls created within the 30-day message retention window are tracked
-- If a webhook or channel becomes unavailable, votes from that server may not be counted
+- Results may take a few seconds after expiry (the aggregator runs on a short interval)
+- Native Discord polls are tracked when they are sent in a **linked** channel
+- Message mappings used to find copies last **30 days**
+- If a webhook or channel is unavailable, votes from that copy may be missing
+- Telegram shows the question and options as text and cannot collect votes

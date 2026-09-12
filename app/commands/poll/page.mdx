@@ -1,0 +1,58 @@
+# /poll
+
+import { Callout } from 'nextra/components'
+
+Creates and manages polls on **Fluxer**. If the channel is linked to an interserv group, the poll is relayed as **Orax Polls** to every linked channel.
+
+<Callout type="info">
+  Discord has no `/poll` command. Create polls with Discord's native poll UI — they still sync and aggregate. See [Polls](/features/polls).
+</Callout>
+
+## Usage
+
+```
+/poll "<question>" "<option 1>" "<option 2>" [...] [--duration 1h] [--single]
+```
+
+Example:
+
+```
+/poll "Best game?" "Chess" "Go" --duration 2h
+```
+
+## Permissions
+
+| Action | Who |
+|---|---|
+| Create | Everyone |
+| Vote | Everyone |
+| Results | Everyone |
+| End / cancel | Poll host, server **Administrator**, or [group moderator](/configuration/moderators) |
+
+## Create fields
+
+| Field | Required | Details |
+|---|---|---|
+| Question | Yes | Quoted if it contains spaces |
+| Options | Yes | At least **2**, at most **10** |
+| `--duration` / `--time` | No | `10m`, `2h`, `1d`, or seconds. Min **10 seconds**, max **30 days**. Default **24h** |
+| `--single` | No | One vote per user. Default is **multiple** answers |
+
+## Manage
+
+```
+/poll vote <id> <option number>
+/poll results <id>
+/poll end <id>
+/poll cancel <id>
+```
+
+Bare aliases also work: `/vote`, `/results`, `/end`, `/cancel`.
+
+On Fluxer, the poll message includes a select menu. Pick an option to vote (or to remove that vote). With `--single`, choosing another option replaces the previous one.
+
+## Notes
+
+- Polls work in **any** Fluxer channel. Linking the channel makes them sync across the group.
+- When the poll ends, combined results are posted (including native Discord votes if the poll was relayed there).
+- See [Polls](/features/polls) for how aggregation works.

@@ -63,7 +63,11 @@ Type `:!emoji_name:` to insert an emoji by name. The bot searches all its server
 
 ### What happens when a poll expires?
 
-Orax aggregates vote counts from all mirrored copies of the poll across all servers and posts the combined results. See [Polls](/features/polls).
+Orax sums vote counts from all Discord copies and from Fluxer `/poll` votes, then posts the combined results. See [Polls](/features/polls).
+
+### How do I create a poll?
+
+On Discord, use the native poll UI. On Fluxer, use [`/poll`](/commands/poll). There is no `/poll` slash command on Discord.
 
 ## Configuration
 

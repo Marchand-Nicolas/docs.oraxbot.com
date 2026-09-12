@@ -15,5 +15,6 @@ export default {
   'rules': 'Rules',
   'help': 'Help',
   'settings': 'Settings',
-  'giveaway': 'Giveaway'
+  'giveaway': 'Giveaway',
+  'poll': 'Poll'
 }
