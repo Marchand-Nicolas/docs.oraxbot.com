@@ -12,7 +12,7 @@ Group settings apply to **all channels** in the interserv group across all conne
 | ---------------------------- | ------------------------------------------------------------------------- | --------------------------- |
 | **Custom Usernames Pattern** | Pattern for displayed usernames (e.g., `{nickname} [{serverName}]`)       | `{nickname} [{serverName}]` |
 | **Custom User Picture URL**  | URL pattern for user avatars (e.g., `{userAvatarUrl}`)                    | User's Discord avatar       |
-| **Reply Style**              | How replies are formatted: Embed, Quote, Quote (no jump), Embed (no jump) | Embed                       |
+| **Reply Style**              | How replies are formatted: Embed, Quote, Quote (no jump), Embed (no jump) (see [Reply Styles](#reply-styles)) | Embed                       |
 | **Allow @everyone/@here**    | Whether @everyone and @here pings are relayed                             | Disabled                    |
 | **Sync Role Mentions**       | Whether role mentions are mapped across servers by role name              | Disabled                    |
 
@@ -77,3 +77,35 @@ Custom username patterns support dynamic variables:
 | `!!!{variable}`   | Same as `{variable}` but uppercased                        |
 
 See [Custom Usernames](/configuration/custom-usernames) for detailed examples.
+
+## Reply Styles
+
+You can customize how message replies are displayed across linked channels on Discord. This can be set at the group level or overridden per channel in [Channel Settings](/configuration/channel-settings).
+
+<Callout type="info">
+  On [Fluxer](/platforms/fluxer), this setting has no effect because Orax uses Fluxer's native reply system instead of custom formatting like on Discord.
+</Callout>
+
+### Embed (default)
+
+Displays the replied-to message inside a rich embed along with a button to jump to the original message.
+
+![Embed reply style](/reply-styles/embed.webp)
+
+### Embed (no jump)
+
+Displays the replied-to message inside a rich embed without the jump button. You can still jump to the original message by clicking the **"Response to ..."** link in the embed header.
+
+![Embed without jump button reply style](/reply-styles/embedNoButton.webp)
+
+### Quote
+
+Displays the replied-to message as a markdown quote block along with a button to jump to the original message.
+
+![Quote reply style](/reply-styles/quote.webp)
+
+### Quote (no jump)
+
+Displays the replied-to message as a markdown quote block without the jump button.
+
+![Quote without jump button reply style](/reply-styles/quoteNoButton.webp)
