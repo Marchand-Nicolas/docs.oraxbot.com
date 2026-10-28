@@ -1,0 +1,21 @@
+# Random Calls (/call)
+
+import { Callout } from 'nextra/components'
+
+Orax lets any channel or interserv group temporarily connect with a random server or active group — Omegle-style — using [`/call`](/commands/call).
+
+## How It Works
+
+1. A server administrator or [group moderator](/configuration/moderators) runs [`/call`](/commands/call) in a channel.
+2. If the channel is not yet in a group, Orax creates a temporary group for the duration of the call. If the channel is already part of a group, the entire group joins the call together (as long as the combined size is **under 32 channels**).
+3. Orax matches the caller with another searching server, an ongoing call, or a group that has **Accept calls** enabled (prioritizing the most recently active groups).
+4. Messages, replies, edits, attachments, and reactions are bridged live between both sides.
+5. Either side can click **⏭️ Next** to skip to another partner or **📴 Hang up** to end the call. Calls also end automatically after **30 minutes of inactivity** (with a reminder 5 minutes before expiration).
+
+## Accepting Incoming Calls
+
+Groups published on [Explore](/explore) accept incoming `/call` requests by default so callers always find active communities quickly.
+
+Group owners can enable or disable **Accept calls** at any time:
+- On Discord / Fluxer: run [`/manage-group`](/commands/manage-group) and click **Accept calls** / **Reject calls**.
+- On the web: open your group settings on the [Dashboard](https://oraxbot.com/dashboard) and toggle **Accept incoming /call requests**.

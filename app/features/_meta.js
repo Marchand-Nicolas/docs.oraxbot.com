@@ -9,5 +9,6 @@ export default {
   'custom-emojis': 'Custom Emojis',
   'voice-channels': 'Voice Channels',
   'auto-translate': 'Auto Translate',
-  'giveaways': 'Giveaways'
+  'giveaways': 'Giveaways',
+  'calls': 'Random Calls'
 }

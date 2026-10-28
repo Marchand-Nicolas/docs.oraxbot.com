@@ -1,0 +1,46 @@
+# /call
+
+import { Callout } from 'nextra/components'
+
+Starts an Omegle-style temporary call from the current channel (or interserv group) to another random server or active interserv group.
+
+## Usage
+
+```
+/call [action: start | next | hangup]
+```
+
+## Actions
+
+| Action | Effect |
+|---|---|
+| `start` (default) | Searches for a random server or active group and bridges messages live |
+| `next` | Hangs up the current call and immediately searches for a new partner |
+| `hangup` | Ends the current call |
+
+Once connected, an embed with **⏭️ Next** and **📴 Hang up** buttons is posted in the channel so moderators can switch partners or end the call in one click.
+
+## How Matchmaking Works
+
+When `/call` is launched, Orax looks for a partner in the following order (requiring a combined total of **fewer than 32 linked channels**):
+
+1. **Direct Queue**: Pairs immediately with another server or group currently searching via `/call`.
+2. **Ongoing Call**: Joins an active 2-group `/call` that has room for a 3rd participant.
+3. **Active Groups (`Accept calls`)**: Connects to an interserv group that has enabled **Accept calls** (prioritizing groups with the most recent message activity: `< 2m`, `< 5m`, `< 15m`, `< 6h`).
+
+<Callout type="info">
+  Public groups listed on [Explore](/explore) have **Accept calls** enabled by default. Group owners can toggle it anytime via [`/manage-group`](/commands/manage-group) or in the [Dashboard](https://oraxbot.com/dashboard).
+</Callout>
+
+## Duration & Inactivity
+
+- Calls stay active as long as people are chatting: every message resets the **30-minute inactivity timer**.
+- A reminder is sent **5 minutes** before the call expires due to inactivity.
+- If the channel was not part of any permanent interserv group, its temporary call group is automatically cleaned up when the call ends.
+
+## Permissions
+
+| Action | Who |
+|---|---|
+| Start / Next / Hang up | Server **Administrator** or [group moderator](/configuration/moderators) |
+| Send messages during a call | Everyone in the linked channels |
