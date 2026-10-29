@@ -12,12 +12,12 @@ Orax can automatically translate synced messages into the language of each chann
 
 1. A user sends a message in a linked channel
 2. Orax relays the message to all other linked channels via webhooks
-3. For each destination channel, if Auto Translate is enabled, the bot detects the source language automatically and translates the text to the channel's target language
+3. For each destination channel, if Auto Translate is enabled, the bot translates the text to the channel's target language
 4. Discord-specific syntax (mentions, custom emojis, URLs, and code blocks) is protected from translation and restored after the text is translated
 5. The translated message is sent to the destination channel
 
 <Callout type="info">
-  The source language is always auto-detected — there is no need to configure it.
+  The source language is the translation language set on the channel the message was sent from. If that channel has no language set, the source language is auto-detected. When the source and target languages are the same, the message is relayed without translation.
 </Callout>
 
 ## Configuration
@@ -27,7 +27,7 @@ Auto Translate is configured at two levels:
 | Level | Setting | Description |
 |---|---|---|
 | **Group** | **Translation** | Master toggle — enables or disables auto translation for the entire group |
-| **Channel** | **Translation Language** | Target language for this specific channel (inherits from the group if not set) |
+| **Channel** | **Translation Language** | Target language for this specific channel. Required: channels without a language receive messages untranslated |
 
 ### Enabling Auto Translate
 
@@ -49,7 +49,7 @@ Once translation is enabled at the group level, you can choose a target language
 3. Open the channel settings
 4. Under **Translation language**, select the desired language
 
-If no language is set for a channel, it inherits the group default.
+There is no group-wide default language. If no language is set for a channel, messages relayed to it are not translated.
 
 <Callout type="info">
   The list of available languages includes English, Spanish, French, German, Portuguese, and many more.
@@ -73,7 +73,7 @@ To prevent breaking Discord formatting and functionality, the following elements
 ## Limitations
 
 - Requires an **active Orax Plus** entitlement (via Stripe subscription or vote)
-- The source language is always **auto-detected** — there is no option to manually set it
+- The source language is the origin channel's translation language, and is only **auto-detected** when that channel has none. A channel's language therefore applies in both directions: messages sent from it must be written in that language
 - Translation quality may vary by language pair
 - Very long messages may take slightly longer to relay due to the translation step
 - Only message text is translated — attachments, embeds, and other content remain unchanged
