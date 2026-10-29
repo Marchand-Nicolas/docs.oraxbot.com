@@ -24,6 +24,28 @@ Fluxer is a growing chat platform supported by Orax. Invite the Fluxer bot to yo
 
 [**Learn more about Orax for Fluxer →**](/platforms/fluxer)
 
+### Self-hosted Fluxer
+
+Running your own Fluxer instance? Orax can connect to it too, so your self-hosted community can be linked to interserv groups alongside Discord, Fluxer, and Telegram.
+
+1. Create a bot account on your Fluxer instance and copy its bot token.
+2. Open the [Orax Dashboard settings](https://oraxbot.com/dashboard/fluxer/settings) and find the **Self-hosted Fluxer instance** section.
+3. Enter your **Instance URL** (e.g. `https://fluxer.yourdomain.com`) and paste the **Bot token**, then click **Save & Connect**.
+4. Invite your bot to your servers on the instance and use `/link-channel <group_link>` as usual.
+
+<Callout type="info">
+  Connecting a self-hosted instance requires an active **Orax Plus** plan on your account
+  (one instance per account). If Orax Plus expires, the instance is paused until you renew.
+</Callout>
+
+Requirements for your instance:
+
+- Publicly reachable over **`https://`** (private or local addresses are not accepted)
+- Exposes a valid `/.well-known/fluxer` discovery document
+- Gateway served over **`wss://`**
+
+Your bot token is stored encrypted. You can update the token or disconnect the instance at any time from the same settings page.
+
 ## Telegram
 
 Telegram is supported by Orax, bringing the same cross-server bridging experience to your Telegram groups.
